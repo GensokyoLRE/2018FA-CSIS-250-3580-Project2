@@ -45,3 +45,54 @@ class Sensor(ABC):
     def get_all(self):
         """ A list containing all available records oldest first. """
         return [{}]
+
+
+class SensorX(Sensor):
+    """ This base class offers a few commonly used features, but requires that the sensor maintains its configuration
+    in __class__.__name__.json
+    Moreover, the config needs to have a property named 'request_delta' for the minimum number of seconds between
+    request and 'last_used', to store the int(time.time()) time-stamp of the last request."""
+
+    def __init__(self, file_name):
+        """ read sensor settings from config file into self.props """
+        self.file_name = file_name
+        with open(file_name + '.json') as json_text:
+            self.props = json.load(json_text)
+        logging.info("Sensor just woke up .. ready to be called")
+
+    def _request_allowed(self):
+        """ check if it's OK to call the 3rd party web-service again, or if we rathe rwait a little longer """
+        return not self.props['offline'] and int(time.time()) - self.props['last_used'] > self.props['request_delta']
+
+    def _save_settings(self):
+        """ save (updated) config settings to disk """
+        # with open(self.file_name + '.json', 'w') as outfile:
+        #     json.dump(self.props, outfile)
+
+    def _write_buffer(self, content):
+        """ keep a copy of the list of dictionaries on file """
+        try:
+            with open(self.file_name + '.buf.json', 'w') as textfile:
+                json.dump(content, textfile)
+            logging.info("content cached")
+        except (Exception, OSError) as e:
+            logging.error("buffer: " + str(e))
+            return None
+
+    def _read_buffer(self):
+        """ read list of dictionaries from file"""
+        try:
+            with open(self.file_name + '.buf.json') as textfile:
+                return json.load(textfile)
+        except (Exception, OSError) as e:
+            logging.error("buffer: " + str(e))
+            return None
+
+    def has_updates(self, k):
+        pass
+
+    def get_content(self, k):
+        pass
+
+    def get_all(self):
+        pass
