@@ -1,1 +1,1 @@
-{"offline": false, "request_delta": 10, "apikey": "C9FGGKT032QI", "zone": "America/Los_Angeles", "service_url": "http://api.timezonedb.com/v2.1/get-time-zone?key=%s&format=json&by=zone&zone=%s", "last_used": 1541791244}
+{"offline": false, "request_delta": 10, "apikey": "C9FGGKT032QI", "zone": "America/Los_Angeles", "service_url": "http://api.timezonedb.com/v2.1/get-time-zone?key=%s&format=json&by=zone&zone=%s", "last_used": 1541798459}

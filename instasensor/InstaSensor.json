@@ -1,1 +1,1 @@
-{"service_url": "https://www.instagram.com/explore/locations/%s/", "geo_id": 34178, "offline": false, "request_delta": 5, "last_used": 1541791248}
+{"service_url": "https://www.instagram.com/explore/locations/%s/", "geo_id": 34178, "request_timeout": 10, "offline": false, "request_delta": 5, "last_used": 1541798463}

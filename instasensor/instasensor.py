@@ -58,7 +58,8 @@ class InstaSensor(SensorX):
     def _fetch_data(self):
         """ json encoded response from webservice .. or none"""
         try:
-            response = requests.get(self.props['service_url'] % (self.props['geo_id']))
+            response = requests.get(self.props['service_url'] % (self.props['geo_id']),
+                                    timeout=self.props['request_timeout'])
             self.props['last_used'] = int(time.time())
             self._save_settings()  # remember time of the last service request
             if response.status_code == 200:
@@ -103,6 +104,5 @@ class InstaSensor(SensorX):
 
 
 if __name__ == "__main__":
-    sensor = InstaSensor()
-    for d in sensor.get_all():
+    for d in InstaSensor().get_all():
         print(d)

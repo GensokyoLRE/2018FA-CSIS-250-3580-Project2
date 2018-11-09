@@ -9,9 +9,16 @@ __email__ = "wolf.paulus@gcccd.edu"
 
 import os
 import json
+import logging
 import requests
 from ghost_client import Ghost, GhostException
 from instasensor.instasensor import InstaSensor
+
+logging.basicConfig(
+    level=logging.INFO,
+    filename=os.path.join(os.getcwd(), 'logs', 'publisher.log'),
+    filemode='a',
+    format='%(asctime)s - %(lineno)d - %(message)s')
 
 
 # noinspection PyMethodMayBeStatic
@@ -21,7 +28,10 @@ class Publisher:
 
     def __init__(self):
         if Publisher.__ghost is None:
-            Publisher.__ghost = Publisher.__connect()
+            try:
+                Publisher.__ghost = Publisher.__connect()
+            except GhostException as e:
+                logging.error(str(e))
 
     @staticmethod
     def __upload_img(img_path):
@@ -31,54 +41,60 @@ class Publisher:
                 img_name = os.path.basename(img_path)
                 response = requests.get(img_path, stream=True)
                 img = Publisher.__ghost.upload(name=img_name, data=response.raw.read())
-            except requests.exceptions:
-                print(requests.exceptions)
+            except (GhostException, requests.exceptions) as e:  # todo: do we need a broader catch here?
+                logging.error(str(e))
         return img
 
     def publish(self, sensor, **kwargs):
         # find or create a sensor name
         name = sensor.__class__.__name__
-        # re-use or create a tag
-        tags = Publisher.__ghost.tags.list(fields='name,id')
-        ids = [t['id'] for t in tags if t['name'] == name]
-        tag = Publisher.__ghost.tags.get(ids[0]) if 0 < len(ids) else Publisher.__ghost.tags.create(name=name)
-        # load and publish referenced image
-        img = Publisher.__upload_img(kwargs.get('img', None))
-        # look for a link to the original source
-        if kwargs.get('origin'):
-            if kwargs.get('story'):
-                kwargs['story'] = kwargs.get('story') + '\nOriginal Source](' + str(kwargs.get('origin')) + ')'
-            else:
-                kwargs['story'] = '\n[Original Source](' + str(kwargs.get('origin')) + ')'
-        # create a post
-        Publisher.__ghost.posts.create(
-            title=str(kwargs.get('caption'))[0:80],  # up to 255 allowed
-            markdown=kwargs.get('story'),
-            custom_excerpt=str(kwargs.get('summary'))[:200],
-            tags=[tag],
-            feature_image=img,
-            status='published',
-            featured=False,
-            page=False,
-            locale='en_US',
-            visibility='public'
-            # slug='my custom-slug',
-        )
+        try:
+            # re-use or create a tag
+            tags = Publisher.__ghost.tags.list(fields='name,id')
+            ids = [t['id'] for t in tags if t['name'] == name]
+            tag = Publisher.__ghost.tags.get(ids[0]) if 0 < len(ids) else Publisher.__ghost.tags.create(name=name)
+            # load and publish referenced image
+            img = Publisher.__upload_img(kwargs.get('img', None))
+            # look for a link to the original source
+            if kwargs.get('origin'):
+                if kwargs.get('story'):
+                    kwargs['story'] = kwargs.get('story') + '\nOriginal Source](' + str(kwargs.get('origin')) + ')'
+                else:
+                    kwargs['story'] = '\n[Original Source](' + str(kwargs.get('origin')) + ')'
+            # create a post
+            Publisher.__ghost.posts.create(
+                title=str(kwargs.get('caption'))[0:80],  # up to 255 allowed
+                markdown=kwargs.get('story'),
+                custom_excerpt=str(kwargs.get('summary'))[:200],
+                tags=[tag],
+                feature_image=img,
+                status='published',
+                featured=False,
+                page=False,
+                locale='en_US',
+                visibility='public'
+                # slug='my custom-slug',
+            )
+        except GhostException as e:
+            logging.error(str(e))
 
     def delete_posts(self, sensor):
         """ delete all posts that have the provided  tag"""
         tag = sensor.__class__.__name__
-        posts = Publisher.__ghost.posts.list(status='all', include='tags')
-        ids = []
-        for _ in range(posts.pages):
-            last, posts = posts, posts.next_page()
-            for p in last:
-                if p['tags'][0]['name'] == tag:  # this might need some work, if more than one tag is used
-                    ids.append(p.id)
-            if not posts:
-                break
-        for i in ids:
-            Publisher.__ghost.posts.delete(i)
+        try:
+            posts = Publisher.__ghost.posts.list(status='all', include='tags')
+            ids = []
+            for _ in range(posts.pages):
+                last, posts = posts, posts.next_page()
+                for p in last:
+                    if p['tags'][0]['name'] == tag:  # this might need some work, if more than one tag is used
+                        ids.append(p.id)
+                if not posts:
+                    break
+            for i in ids:
+                Publisher.__ghost.posts.delete(i)
+        except GhostException as e:
+            logging.error(str(e))
 
     @staticmethod
     def __connect():
@@ -89,8 +105,8 @@ class Publisher:
             ghost = Ghost(settings['server'], client_id=settings['client_id'], client_secret=settings['client_secret'])
             ghost.login(settings['user'], settings['password'])
             return ghost
-        except GhostException:
-            print()
+        except GhostException as e:
+            logging.error(str(e))
             return None
 
 
