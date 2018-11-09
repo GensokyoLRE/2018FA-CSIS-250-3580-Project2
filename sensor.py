@@ -9,11 +9,14 @@ but loaded from a JSON file.
 The sensor must transparently protect itself from being asked to report information too frequently. I.e., the sensor is
 responsible for working inside the limits, prescribed by the 3rd party web service, but without becoming unresponsive.
 """
-__version__ = "1.0"
+__version__ = "1.1"
 __author__ = "Wolf Paulus"
 __email__ = "wolf.paulus@gcccd.edu"
 
 from abc import ABC, abstractmethod
+import json
+import logging
+import time
 
 
 class Sensor(ABC):
@@ -66,25 +69,25 @@ class SensorX(Sensor):
 
     def _save_settings(self):
         """ save (updated) config settings to disk """
-        # with open(self.file_name + '.json', 'w') as outfile:
-        #     json.dump(self.props, outfile)
+        with open(self.file_name + '.json', 'w') as outfile:
+            json.dump(self.props, outfile)
 
     def _write_buffer(self, content):
         """ keep a copy of the list of dictionaries on file """
         try:
-            with open(self.file_name + '.buf.json', 'w') as textfile:
+            with open(self.file_name + '.buf', 'w') as textfile:
                 json.dump(content, textfile)
             logging.info("content cached")
-        except (Exception, OSError) as e:
+        except (Exception, OSError, ValueError) as e:
             logging.error("buffer: " + str(e))
             return None
 
     def _read_buffer(self):
         """ read list of dictionaries from file"""
         try:
-            with open(self.file_name + '.buf.json') as textfile:
+            with open(self.file_name + '.buf') as textfile:
                 return json.load(textfile)
-        except (Exception, OSError) as e:
+        except (Exception, OSError, ValueError) as e:
             logging.error("buffer: " + str(e))
             return None
 
