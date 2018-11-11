@@ -76,12 +76,22 @@ class FooSensor(SensorX):
     def _create_content(ws_json):
         """ convert the json response from the web-service into a list of dictionaries that meets our needs. """
         ts = datetime.fromtimestamp(ws_json['timestamp'], timezone.utc)
+        m, h = ts.time().minute, ts.time().hour
+        if m >= 45:
+            h += 1
+        h = 12 if h == 0 else h % 12
+        if 15 < m < 45:
+            h = h * 100 + 30
+        icon = "clock{}.png".format(h)
+
         d = {'k': ws_json['timestamp'],
              'date': ts.strftime('%Y-%m-%d %I:%M:%S %p'),
              'caption': 'Current time at Grossmont College',
-             'summary': 'Like everywhere in the {} time-zone, the local time at the Grossmont–Cuyamaca Community '
-                        'College District is currently {}'.format(ws_json['zoneName'], ts.strftime("%I:%M:%S %p")),
-             'story': "It's just just the current time. _There is nothing more to say .._"
+             'summary': 'It\'s currently {} at the **Grossmont–Cuyamaca Community College District**'.format(
+                 ts.strftime("%I:%M:%S %p")),
+             'story': 'Like everywhere in the _{}_ time-zone, the local time at the **Grossmont–Cuyamaca Community '
+                      'College District** is currently {}'.format(ws_json['zoneName'], ts.strftime("%I:%M:%S %p")),
+             'img': 'https://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/' + icon
              }
         return [d]
 
@@ -90,12 +100,12 @@ if __name__ == "__main__":
     """ let's play """
     sensor = FooSensor()
 
-    for i in range(30):
+    for i in range(10):
         print(sensor.get_all())
         time.sleep(1)  # let's relax for short while
 
     n = 0
-    for i in range(30):
+    for i in range(10):
         if sensor.has_updates(n):
             ld = sensor.get_content(n)  # list of dictionaries
             print(ld)
