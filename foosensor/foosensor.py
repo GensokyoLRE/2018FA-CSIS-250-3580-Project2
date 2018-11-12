@@ -72,6 +72,9 @@ class FooSensor(SensorX):
             content = None
         return content
 
+    def get_featured_image(self):
+        return 'https://imgc.allpostersimages.com/img/print/u-g-Q10W8QZ0.jpg?w=550&h=550&p=0'
+
     @staticmethod
     def _create_content(ws_json):
         """ convert the json response from the web-service into a list of dictionaries that meets our needs. """

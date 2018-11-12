@@ -19,6 +19,7 @@ import logging
 import time
 
 
+# noinspection PyMethodMayBeStatic
 class Sensor(ABC):
     def __str__(self):
         return self.__class__.__name__
@@ -35,7 +36,7 @@ class Sensor(ABC):
         E.g.
         [{'k'       : 0  a unique records identifier
           'date'    : string representation of datetime.datetime
-          'caption' : 'Grossmont–Cuyamaca Community College District'
+          'caption' : 'Grossmont–Cuyamaca Community College District up to 255 characters'
           'summary' : 'Grossmont–Cuyamaca Community College District is a California community college district'
           'story'   : (optional, either plaintext or markdown) 'The Grossmont–Cuyamaca Community College District is ..'
           'img'     : (optional link to a jpg or png) 'https://upload.wikimedia.org/wikipedia/.../logo.png'
@@ -48,6 +49,10 @@ class Sensor(ABC):
     def get_all(self):
         """ A list containing all available records oldest first. """
         return [{}]
+
+    def get_featured_image(self):
+        """ optional background image for this sensors content"""
+        return None
 
 
 class SensorX(Sensor):
