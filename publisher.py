@@ -1,18 +1,20 @@
 """
 A consumer for GCCCD Software Sensors, takes content from sensors and publishes into Ghost
 """
-from foosensor.foosensor import FooSensor
 
 __version__ = "2.0"
 __author__ = "Wolf Paulus"
 __email__ = "wolf.paulus@gcccd.edu"
 
+import logging
 import os
 import json
-import logging
 import requests
+import time
+from threading import Thread
 from ghost_client import Ghost, GhostException
 from instasensor.instasensor import InstaSensor
+from foosensor.foosensor import FooSensor
 
 logging.basicConfig(
     level=logging.INFO,
@@ -48,24 +50,28 @@ class Publisher:
     def publish(self, sensor, **kwargs):
         # find or create a sensor name
         name = sensor.__class__.__name__
+        if not kwargs.get('k') or not kwargs.get('caption') or not kwargs.get('summary'):
+            logging.info("Incomplete record, won't be published " + name)
+            return
         try:
             # re-use or create a tag
             tags = Publisher.__ghost.tags.list(fields='name,id')
             ids = [t['id'] for t in tags if t['name'] == name]
-            tag = Publisher.__ghost.tags.get(ids[0]) if 0 < len(ids) else Publisher.__ghost.tags.create(name=name)
+            tag = Publisher.__ghost.tags.get(ids[0]) if 0 < len(ids) else \
+                Publisher.__ghost.tags.create(name=name, feature_image=sensor.get_featured_image())
+            # re-use summery as story, if necessary
+            if not kwargs.get('story'):
+                kwargs['story'] = kwargs.get('summary')
             # load and publish referenced image
             img = Publisher.__upload_img(kwargs.get('img', None))
             # look for a link to the original source
             if kwargs.get('origin'):
-                if kwargs.get('story'):
-                    kwargs['story'] = kwargs.get('story') + '\nOriginal Source](' + str(kwargs.get('origin')) + ')'
-                else:
-                    kwargs['story'] = '\n[Original Source](' + str(kwargs.get('origin')) + ')'
+                kwargs['story'] = kwargs.get('story') + '\n\n[Original Source](' + str(kwargs.get('origin')) + ')'
             # create a post
             Publisher.__ghost.posts.create(
-                title=str(kwargs.get('caption'))[0:80],  # up to 255 allowed
-                markdown=kwargs.get('story'),
-                custom_excerpt=str(kwargs.get('summary'))[:200],
+                title=str(kwargs.get('caption')[:255]),  # up to 255 allowed
+                custom_excerpt=str(kwargs.get('summary')),  # todo is there a size limit ?
+                markdown=kwargs.get('story'),  # todo is there a size limit ?
                 tags=[tag],
                 feature_image=img,
                 status='published',
@@ -87,7 +93,7 @@ class Publisher:
             for _ in range(posts.pages):
                 last, posts = posts, posts.next_page()
                 for p in last:
-                    if p['tags'][0]['name'] == tag:  # this might need some work, if more than one tag is used
+                    if p['tags'] and p['tags'][0]['name'] == tag:  # this might need some work, if more than one tag is used
                         ids.append(p.id)
                 if not posts:
                     break
@@ -110,6 +116,30 @@ class Publisher:
             return None
 
 
+class SmartSensor(Thread):
+    running = True
+
+    def __init__(self, sensor, delete_old=False):
+        super().__init__(name=sensor.__class__.__name__)
+        self.sensor = sensor
+        self.k = 0
+        if delete_old:
+            Publisher().delete_posts(self.sensor)  # delete current content on (re-)start
+        for s in self.sensor.get_all():
+            Publisher().publish(self.sensor, **s)
+            self.k = s['k']
+
+    def run(self):
+        print(self.name + " is running now")
+        while SmartSensor.running:
+            if self.sensor.has_updates(self.k):
+                for s in self.sensor.get_content(self.k):
+                    Publisher().publish(self.sensor, **s)
+                    self.k = s['k']
+            time.sleep(5)
+        print(self.name + " ended")
+
+
 if __name__ == "__main__":
     # GHOST 'Only 100 request per IP address per hour!!
     # ghost_client import Ghost -->  https://github.com/rycus86/ghost-client
@@ -120,10 +150,3 @@ if __name__ == "__main__":
         Publisher().publish(my_sensor, **record)
         print(record)
 
-    my_sensor = InstaSensor()
-    Publisher().delete_posts(my_sensor)
-
-    stories = my_sensor.get_all()
-    for s in stories:
-        Publisher().publish(my_sensor, **s)
-    print(" Stories posted : ", str(len(stories)))

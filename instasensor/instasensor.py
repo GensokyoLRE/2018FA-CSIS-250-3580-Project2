@@ -77,7 +77,7 @@ class InstaSensor(SensorX):
     def _create_content(text):
         """ convert the json response from the web-service into a list of dictionaries that meets our needs.
         Parse the json content, which can be found in the javascript of the web page."""
-        text.replace(u"\u2022", u" ")
+        text = text.replace(u"\u2022", u" ")
         soup = BeautifulSoup(text, 'lxml')
         script = soup.find('script', text=lambda t: t.startswith('window._sharedData'))
         page_json = script.text.split(' = ', 1)[1].rstrip(';')
@@ -92,10 +92,9 @@ class InstaSensor(SensorX):
             if gram['node']['edge_media_to_caption']['edges']:
                 text = gram['node']['edge_media_to_caption']['edges'][0]['node']['text']
                 lines = text.split('\n')
-                lines.append("likes: " + str(gram['node']['edge_liked_by']['count']))
-                post['caption'] = lines[0]
-                post['summary'] = ''.join(lines[1:])  # Concatenate item in list to strings
-                post['story'] = ''.join(lines[1:])
+                post['caption'] = lines[0].replace("#", " ")
+                post['summary'] = text.replace("#", "\#") + "\n\n## Likes: _{}_".format(
+                    str(gram['node']['edge_liked_by']['count']))
             if gram['node']['thumbnail_resources'][4]:
                 post['img'] = gram['node']['thumbnail_resources'][4]['src']
 
