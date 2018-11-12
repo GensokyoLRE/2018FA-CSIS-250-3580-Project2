@@ -73,6 +73,9 @@ class InstaSensor(SensorX):
             content = []
         return content
 
+    def get_featured_image(self):
+        return "https://www.androidguys.com/wp-content/uploads/2017/11/Instagram-How-To.jpg"
+
     @staticmethod
     def _create_content(text):
         """ convert the json response from the web-service into a list of dictionaries that meets our needs.
