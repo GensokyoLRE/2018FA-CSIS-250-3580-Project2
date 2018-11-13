@@ -15,6 +15,7 @@ from threading import Thread
 from ghost_client import Ghost, GhostException
 from instasensor.instasensor import InstaSensor
 from foosensor.foosensor import FooSensor
+from openweathersensor.openweather import OpenWeather
 
 logging.basicConfig(
     level=logging.INFO,
@@ -93,7 +94,7 @@ class Publisher:
             for _ in range(posts.pages):
                 last, posts = posts, posts.next_page()
                 for p in last:
-                    if p['tags'] and p['tags'][0]['name'] == tag:  # this might need some work, if more than one tag is used
+                    if p['tags'] and p['tags'][0]['name'] == tag:  # todo what if more than one tag is used
                         ids.append(p.id)
                 if not posts:
                     break
@@ -145,8 +146,8 @@ if __name__ == "__main__":
     # ghost_client import Ghost -->  https://github.com/rycus86/ghost-client
     # look for client_id and client_id in the html code here: http://localhost:2368
 
-    my_sensor = FooSensor()
-    for record in my_sensor.get_all():
-        Publisher().publish(my_sensor, **record)
-        print(record)
-
+    SmartSensor(InstaSensor()).start()
+    SmartSensor(FooSensor(), True).start()
+    SmartSensor(OpenWeather(), True).start()
+    time.sleep(5)
+    SmartSensor.running = False

@@ -73,7 +73,7 @@ class FooSensor(SensorX):
         return content
 
     def get_featured_image(self):
-        return 'https://imgc.allpostersimages.com/img/print/u-g-Q10W8QZ0.jpg?w=550&h=550&p=0'
+        return self.props['featured_image']
 
     @staticmethod
     def _create_content(ws_json):

@@ -2,6 +2,7 @@
 import os
 import time
 import logging
+from datetime import datetime, timezone
 import requests
 from requests import Timeout, HTTPError, ConnectionError
 from sensor import SensorX
@@ -41,10 +42,27 @@ class OpenWeather(SensorX):
             content = None
         return content
 
+    def get_featured_image(self):
+        return self.props['featured_image']
+
     @staticmethod
     def _create_content(ws_json):
         """ convert the json response from the web-service into a list of dictionaries that meets our needs. """
-        return [ws_json]
+        if ws_json['cod'] == '200':
+            m, forecast = 0, ws_json['list']
+            for i in range(len(forecast)):
+                if forecast[m]['main']['temp_max'] < forecast[i]['main']['temp_max']:
+                    m = i
+            ts0 = datetime.now()
+            tsx = datetime.fromtimestamp(forecast[m]['dt'])
+            d = {'k': ts0,
+                 'date': ts0.strftime('%Y-%m-%d %I:%M:%S %p'),
+                 'caption': 'Temperature forecast for Grossmont College',
+                 'summary': 'For Grossmont College, the warmest temperature of **{} F** is forecast for {}'.format(
+                     forecast[m]['main']['temp_max'], tsx.strftime("%A %I:%M:%S %p"))
+                 }
+            return [d]
+        return []
 
 
 if __name__ == "__main__":

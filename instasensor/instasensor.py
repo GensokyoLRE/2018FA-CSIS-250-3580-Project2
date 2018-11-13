@@ -74,7 +74,7 @@ class InstaSensor(SensorX):
         return content
 
     def get_featured_image(self):
-        return "https://www.androidguys.com/wp-content/uploads/2017/11/Instagram-How-To.jpg"
+        return self.props['featured_image']
 
     @staticmethod
     def _create_content(text):
