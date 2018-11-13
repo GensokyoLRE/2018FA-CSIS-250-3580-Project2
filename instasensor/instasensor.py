@@ -68,7 +68,7 @@ class InstaSensor(SensorX):
             else:
                 logging.warning("response: {} {} {}".format(response.status_code, response, response.text))
                 content = []
-        except (HTTPError, Timeout, ConnectionError, ValueError) as e:
+        except (HTTPError, Timeout, ConnectionError, KeyError, ValueError, TypeError) as e:
             logging.error("except: " + str(e))
             content = []
         return content

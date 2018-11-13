@@ -2,10 +2,17 @@
 import os
 import time
 import logging
-from datetime import datetime, timezone
+from datetime import datetime
 import requests
 from requests import Timeout, HTTPError, ConnectionError
 from sensor import SensorX
+
+# logging into current_dir/logs/{sensor_name}.log
+logging.basicConfig(
+    level=logging.INFO,
+    filename=os.path.join(os.getcwd(), 'logs', 'openweathersensor.log'),
+    filemode='a',
+    format='%(asctime)s - %(lineno)d - %(message)s')
 
 
 class OpenWeather(SensorX):
@@ -37,7 +44,7 @@ class OpenWeather(SensorX):
             else:
                 logging.warning("response: {} {} {}".format(response.status_code, response, response.text))
                 content = None
-        except (HTTPError, Timeout, ConnectionError, ValueError) as e:
+        except (HTTPError, Timeout, ConnectionError, KeyError, ValueError, TypeError) as e:
             logging.error("except: " + str(e))
             content = None
         return content
@@ -49,17 +56,14 @@ class OpenWeather(SensorX):
     def _create_content(ws_json):
         """ convert the json response from the web-service into a list of dictionaries that meets our needs. """
         if ws_json['cod'] == '200':
-            m, forecast = 0, ws_json['list']
-            for i in range(len(forecast)):
-                if forecast[m]['main']['temp_max'] < forecast[i]['main']['temp_max']:
-                    m = i
+            m = max(ws_json['list'], key=lambda item: int(item['main']['temp_max']))
             ts0 = datetime.now()
-            tsx = datetime.fromtimestamp(forecast[m]['dt'])
+            tsx = datetime.fromtimestamp(m['dt'])
             d = {'k': ts0,
                  'date': ts0.strftime('%Y-%m-%d %I:%M:%S %p'),
                  'caption': 'Temperature forecast for Grossmont College',
                  'summary': 'For Grossmont College, the warmest temperature of **{} F** is forecast for {}'.format(
-                     forecast[m]['main']['temp_max'], tsx.strftime("%A %I:%M:%S %p"))
+                     m['main']['temp_max'], tsx.strftime("%A %I:%M:%S %p"))
                  }
             return [d]
         return []
