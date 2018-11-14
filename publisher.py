@@ -50,11 +50,12 @@ class Publisher:
 
     def publish(self, sensor, **kwargs):
         # find or create a sensor name
-        name = sensor.__class__.__name__
-        if not kwargs.get('k') or not kwargs.get('caption') or not kwargs.get('summary'):
-            logging.info("Incomplete record, won't be published " + name)
-            return
         try:
+            name = sensor.__class__.__name__
+            if not kwargs.get('k') or not kwargs.get('caption') or not kwargs.get('summary'):
+                logging.info("Incomplete record, won't be published " + name)
+                return
+
             # re-use or create a tag
             tags = Publisher.__ghost.tags.list(fields='name,id')
             ids = [t['id'] for t in tags if t['name'] == name]
@@ -82,7 +83,7 @@ class Publisher:
                 visibility='public'
                 # slug='my custom-slug',
             )
-        except GhostException as e:
+        except (GhostException, ConnectionError, KeyError, ValueError, TypeError) as e:
             logging.error(str(e))
 
     def delete_posts(self, sensor):
@@ -142,12 +143,17 @@ class SmartSensor(Thread):
 
 
 if __name__ == "__main__":
+
+    sensor = OpenWeather()
+    for post in sensor.get_all():
+        Publisher().publish(sensor, **post)
+
     # GHOST 'Only 100 request per IP address per hour!!
     # ghost_client import Ghost -->  https://github.com/rycus86/ghost-client
     # look for client_id and client_id in the html code here: http://localhost:2368
 
-    SmartSensor(InstaSensor()).start()
-    SmartSensor(FooSensor(), True).start()
-    SmartSensor(OpenWeather(), True).start()
-    time.sleep(5)
-    SmartSensor.running = False
+    # SmartSensor(InstaSensor()).start()
+    # SmartSensor(FooSensor(), True).start()
+    # SmartSensor(OpenWeather(), True).start()
+    # time.sleep(5)
+    # SmartSensor.running = False

@@ -23,6 +23,8 @@ class OpenWeather(SensorX):
         """ calling the super this a file name, without extension """
         super().__init__(os.path.join(os.path.dirname(__file__), self.__class__.__name__))
 
+        
+
     def get_all(self):
         """ return fresh or cached content"""
         if self._request_allowed():
