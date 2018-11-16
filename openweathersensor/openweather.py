@@ -23,8 +23,6 @@ class OpenWeather(SensorX):
         """ calling the super this a file name, without extension """
         super().__init__(os.path.join(os.path.dirname(__file__), self.__class__.__name__))
 
-        
-
     def get_all(self):
         """ return fresh or cached content"""
         if self._request_allowed():
@@ -65,7 +63,8 @@ class OpenWeather(SensorX):
                  'date': ts0.strftime('%Y-%m-%d %I:%M:%S %p'),
                  'caption': 'Temperature forecast for Grossmont College',
                  'summary': 'For Grossmont College, the warmest temperature of **{} F** is forecast for {}'.format(
-                     m['main']['temp_max'], tsx.strftime("%A %I:%M:%S %p"))
+                     m['main']['temp_max'], tsx.strftime("%A %I:%M:%S %p")),
+                 'img': os.path.join(os.path.dirname(__file__), 'images/sunnyday.jpg')
                  }
             return [d]
         return []

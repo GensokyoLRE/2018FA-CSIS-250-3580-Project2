@@ -42,8 +42,11 @@ class Publisher:
         if img_path is not None:
             try:
                 img_name = os.path.basename(img_path)
-                response = requests.get(img_path, stream=True)
-                img = Publisher.__ghost.upload(name=img_name, data=response.raw.read())
+                if img_path.startswith("http"):
+                    response = requests.get(img_path, stream=True)
+                    img = Publisher.__ghost.upload(name=img_name, data=response.raw.read())
+                else:
+                    img = Publisher.__ghost.upload(name=img_name, file_path=img_path)
             except (GhostException, requests.exceptions) as e:  # todo: do we need a broader catch here?
                 logging.error(str(e))
         return img
