@@ -62,17 +62,23 @@ class Publisher:
             # re-use or create a tag
             tags = Publisher.__ghost.tags.list(fields='name,id')
             ids = [t['id'] for t in tags if t['name'] == name]
-            tag = Publisher.__ghost.tags.get(ids[0]) if 0 < len(ids) else \
-                Publisher.__ghost.tags.create(name=name, feature_image=sensor.get_featured_image())
+            tag = self.__ghost.tags.get(ids[0]) if 0 < len(ids) else self.__ghost.tags.create(
+                name=name,
+                description=sensor.props['about'],
+                feature_image=Publisher.__upload_img(sensor.get_featured_image()))
+
             # re-use summery as story, if necessary
             if not kwargs.get('story'):
                 kwargs['story'] = kwargs.get('summary')
+
             # load and publish referenced image
             img = Publisher.__upload_img(kwargs.get('img', None))
+
             # look for a link to the original source
             if kwargs.get('origin'):
                 kwargs['story'] = kwargs.get('story') + '\n\n[Original Source](' + str(kwargs.get('origin')) + ')'
-            # create a post
+
+            # now it's time to create the post
             Publisher.__ghost.posts.create(
                 title=str(kwargs.get('caption')[:255]),  # up to 255 allowed
                 custom_excerpt=str(kwargs.get('summary')),  # todo is there a size limit ?
@@ -106,6 +112,16 @@ class Publisher:
                 Publisher.__ghost.posts.delete(i)
         except GhostException as e:
             logging.error(str(e))
+
+    def purge(self, sensor):
+        """ delete all posts and the tag associated with the given sensor """
+        self.delete_posts(sensor)
+        name = sensor.__class__.__name__
+        tags = Publisher.__ghost.tags.list(fields='name,id')
+        ids = [t['id'] for t in tags if t['name'] == name]
+        if 0 < len(ids):
+            self.__ghost.tags.delete(ids[0])
+            logging.info("sensor {} purged".format(name))
 
     @staticmethod
     def __connect():
@@ -146,14 +162,23 @@ class SmartSensor(Thread):
 
 
 if __name__ == "__main__":
-
-    sensor = OpenWeather()
-    for post in sensor.get_all():
-        Publisher().publish(sensor, **post)
-
     # GHOST 'Only 100 request per IP address per hour!!
     # ghost_client import Ghost -->  https://github.com/rycus86/ghost-client
     # look for client_id and client_id in the html code here: http://localhost:2368
+
+    publisher = Publisher()
+    sensor = OpenWeather()
+
+    publisher.purge(sensor)
+
+    for post in sensor.get_all():
+        publisher.publish(sensor, **post)
+
+    sensor = FooSensor()
+    publisher.purge(sensor)
+
+    for post in sensor.get_all():
+        publisher.publish(sensor, **post)
 
     # SmartSensor(InstaSensor()).start()
     # SmartSensor(FooSensor(), True).start()

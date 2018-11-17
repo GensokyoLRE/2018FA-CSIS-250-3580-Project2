@@ -23,6 +23,20 @@ class OpenWeather(SensorX):
         """ calling the super this a file name, without extension """
         super().__init__(os.path.join(os.path.dirname(__file__), self.__class__.__name__))
 
+    def has_updates(self, k):
+        """ find out if there is content beyond k .. since this sensor only returns a single record,
+        k doesn't mean anything. Instead, has_updates is interpreted as 'has the forecast changed"""
+        if self._request_allowed():
+            prev = self._read_buffer()
+            content = self._fetch_data()
+            return 0 if prev and prev[0] and prev[0]['summary'] == content[0]['summary'] else 1
+        return 0
+
+    def get_content(self, k):
+        """ return content after k"""
+        content = self.get_all()
+        return content if 0 < len(content) and content[0]['k'] != k else None
+
     def get_all(self):
         """ return fresh or cached content"""
         if self._request_allowed():
@@ -50,21 +64,20 @@ class OpenWeather(SensorX):
         return content
 
     def get_featured_image(self):
-        return self.props['featured_image']
+        return os.path.join(os.path.dirname(__file__), 'images', self.props['featured_image'])
 
-    @staticmethod
-    def _create_content(ws_json):
+    def _create_content(self, ws_json):
         """ convert the json response from the web-service into a list of dictionaries that meets our needs. """
         if ws_json['cod'] == '200':
             m = max(ws_json['list'], key=lambda item: int(item['main']['temp_max']))
             ts0 = datetime.now()
             tsx = datetime.fromtimestamp(m['dt'])
-            d = {'k': ts0,
+            d = {'k': str(ts0),
                  'date': ts0.strftime('%Y-%m-%d %I:%M:%S %p'),
                  'caption': 'Temperature forecast for Grossmont College',
                  'summary': 'For Grossmont College, the warmest temperature of **{} F** is forecast for {}'.format(
                      m['main']['temp_max'], tsx.strftime("%A %I:%M:%S %p")),
-                 'img': os.path.join(os.path.dirname(__file__), 'images/sunnyday.jpg')
+                 'img': os.path.join(os.path.dirname(__file__), 'images', self.props['post_image'])
                  }
             return [d]
         return []
@@ -72,5 +85,13 @@ class OpenWeather(SensorX):
 
 if __name__ == "__main__":
     """ let's play """
+    os.remove("OpenWeather.buf")
     sensor = OpenWeather()
-    print(sensor.get_all())
+    print(sensor.has_updates(0))
+    d = sensor.get_all()
+    print(d)
+    print(sensor.has_updates(0))
+    c = sensor.get_content(0)
+    print(c)
+    c = sensor.get_content(c[0]['k'])
+    print(c)

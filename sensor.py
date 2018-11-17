@@ -17,6 +17,7 @@ from abc import ABC, abstractmethod
 import json
 import logging
 import time
+import os
 
 
 # noinspection PyMethodMayBeStatic
@@ -96,11 +97,18 @@ class SensorX(Sensor):
             logging.error("buffer: " + str(e))
             return None
 
+    def get_featured_image(self):
+        """ needs to be overridden if inheriting from SensorX provides a featured image """
+        return None
+
     def has_updates(self, k):
+        """ needs to be implemented by class inheriting from SensorX """
         pass
 
     def get_content(self, k):
+        """ needs to be implemented by class inheriting from SensorX """
         pass
 
     def get_all(self):
+        """ needs to be implemented by class inheriting from SensorX """
         pass
