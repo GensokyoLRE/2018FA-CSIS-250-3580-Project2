@@ -10,18 +10,11 @@ import logging
 import os
 import json
 import requests
-import time
-from threading import Thread
+
 from ghost_client import Ghost, GhostException
 from instasensor.instasensor import InstaSensor
 from foosensor.foosensor import FooSensor
 from openweathersensor.openweather import OpenWeather
-
-logging.basicConfig(
-    level=logging.INFO,
-    filename=os.path.join(os.getcwd(), 'logs', 'publisher.log'),
-    filemode='a',
-    format='%(asctime)s - %(lineno)d - %(message)s')
 
 
 # noinspection PyMethodMayBeStatic
@@ -64,7 +57,7 @@ class Publisher:
             ids = [t['id'] for t in tags if t['name'] == name]
             tag = self.__ghost.tags.get(ids[0]) if 0 < len(ids) else self.__ghost.tags.create(
                 name=name,
-                description=str(sensor.props['about'])[:500] if 'about' in sensor.props else "",  # up to 500 allowed
+                description=str(sensor.props['about'])[:500] if sensor.props and 'about' in sensor.props else "",
                 feature_image=Publisher.__upload_img(sensor.get_featured_image()))
 
             # re-use summery as story, if necessary
@@ -90,38 +83,56 @@ class Publisher:
                 page=False,
                 locale='en_US',
                 visibility='public'
-                # slug='my custom-slug',
             )
         except (GhostException, ConnectionError, KeyError, ValueError, TypeError) as e:
             logging.error(str(e))
 
-    def delete_posts(self, sensor):
+    def delete_posts(self, sensor=None, all_posts=False):
         """ delete all posts that have the provided  tag"""
-        tag = sensor.__class__.__name__
+        try:
+            posts = Publisher.__ghost.posts.list(status='all', include='tags')
+            ids = []
+            for _ in range(posts.pages):
+                last, posts = posts, posts.next_page()
+                ids.extend([p['id'] for p in last if
+                            all_posts or (p['tags'] and p['tags'][0]['name'] == sensor.__class__.__name__)])
+                if not posts:
+                    break
+            for i in ids:
+                Publisher.__ghost.posts.delete(i)
+                logging.info("deleted")
+
+        except GhostException as e:
+            logging.error(str(e))
+
+    def delete(self, tag):
+        """ delete all posts that have the provided  tag"""
         try:
             posts = Publisher.__ghost.posts.list(status='all', include='tags')
             ids = []
             for _ in range(posts.pages):
                 last, posts = posts, posts.next_page()
                 for p in last:
-                    if p['tags'] and p['tags'][0]['name'] == tag:  # todo what if more than one tag is used
-                        ids.append(p.id)
+                    for sensor, upd in tag:
+                        if p['tags'] and p['tags'][0]['name'] == sensor.__class__.__name__ \
+                                and p['title'] == upd['caption'] \
+                                and p['custom_excerpt'] == upd['summary']:
+                            ids.append(p.id)
                 if not posts:
                     break
-            for i in ids:
-                Publisher.__ghost.posts.delete(i)
+            # for i in ids:
+            #     Publisher.__ghost.posts.delete(i)
         except GhostException as e:
             logging.error(str(e))
 
-    def purge(self, sensor):
+    def purge(self, sensor=None, all_sensors=False):
         """ delete all posts and the tag associated with the given sensor """
-        self.delete_posts(sensor)
-        name = sensor.__class__.__name__
+        self.delete_posts(sensor, all_sensors)
         tags = Publisher.__ghost.tags.list(fields='name,id')
-        ids = [t['id'] for t in tags if t['name'] == name]
+        ids = [t['id'] for t in tags if all_sensors or t['name'] == sensor.__class__.__name__]
         if 0 < len(ids):
             self.__ghost.tags.delete(ids[0])
-            logging.info("sensor {} purged".format(name))
+            logging.info("purged")
 
     @staticmethod
     def __connect():
@@ -137,51 +148,30 @@ class Publisher:
             return None
 
 
-class SmartSensor(Thread):
-    running = True
-
-    def __init__(self, sensor, delete_old=False):
-        super().__init__(name=sensor.__class__.__name__)
-        self.sensor = sensor
-        self.k = 0
-        if delete_old:
-            Publisher().delete_posts(self.sensor)  # delete current content on (re-)start
-        for s in self.sensor.get_all():
-            Publisher().publish(self.sensor, **s)
-            self.k = s['k']
-
-    def run(self):
-        print(self.name + " is running now")
-        while SmartSensor.running:
-            if self.sensor.has_updates(self.k):
-                for s in self.sensor.get_content(self.k):
-                    Publisher().publish(self.sensor, **s)
-                    self.k = s['k']
-            time.sleep(5)
-        print(self.name + " ended")
-
-
 if __name__ == "__main__":
-    # GHOST 'Only 100 request per IP address per hour!!
-    # ghost_client import Ghost -->  https://github.com/rycus86/ghost-client
-    # look for client_id and client_id in the html code here: http://localhost:2368
+
+    for handler in logging.root.handlers[:]:
+        logging.root.removeHandler(handler)
+
+    logging.basicConfig(
+        level=logging.INFO,
+        filename=os.path.join(os.getcwd(), 'logs', 'publisher.log'),
+        filemode='a',
+        format='%(asctime)s - %(module)s - %(lineno)d - %(levelname)s - %(message)s')
 
     publisher = Publisher()
+    publisher.purge(FooSensor())
 
-    sensor = InstaSensor()
-    for post in sensor.get_all():
-        publisher.publish(sensor, **post)
+    s = OpenWeather()
+    publisher.purge(s)
 
-    sensor = OpenWeather()
-    for post in sensor.get_all():
-        publisher.publish(sensor, **post)
+    content = s.get_all()
+    for c in content:
+        publisher.publish(s, **c)
 
-    sensor = FooSensor()
-    for post in sensor.get_all():
-        publisher.publish(sensor, **post)
+    s = InstaSensor()
+    publisher.purge(s)
 
-    # SmartSensor(InstaSensor()).start()
-    # SmartSensor(FooSensor(), True).start()
-    # SmartSensor(OpenWeather(), True).start()
-    # time.sleep(5)
-    # SmartSensor.running = False
+    content = s.get_all()
+    for c in content:
+        publisher.publish(s, **c)
