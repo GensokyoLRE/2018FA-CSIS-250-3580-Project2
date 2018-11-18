@@ -49,7 +49,13 @@ class Publisher:
         try:
             name = sensor.__class__.__name__
             if not kwargs.get('k') or not kwargs.get('caption') or not kwargs.get('summary'):
-                logging.info("Incomplete record, won't be published " + name)
+                logging.info(name + " incomplete records, won't be published.")
+                return
+            ids = self.find_dup(name, kwargs.get('caption'), kwargs.get('summary'))
+            if 0 < len(ids):
+                logging.info(name + " : duplicate records, won't be published " + kwargs.get('caption'))
+                # alternatively, the duplicates could be deleted as well, like this:
+                # for i in ids: Publisher.__ghost.posts.delete(i)
                 return
 
             # re-use or create a tag
@@ -70,7 +76,9 @@ class Publisher:
             # look for a link to the original source
             if kwargs.get('origin'):
                 kwargs['story'] = kwargs.get('story') + '\n\n[Original Source](' + str(kwargs.get('origin')) + ')'
-
+            # hack only needed for the bleak theme
+            # if img:
+            #     kwargs['story'] = "![Logo]({})\n".format(img) + kwargs.get('story')
             # now it's time to create the post
             Publisher.__ghost.posts.create(
                 title=str(kwargs.get('caption')[:255]),  # up to 255 allowed
@@ -105,25 +113,21 @@ class Publisher:
         except GhostException as e:
             logging.error(str(e))
 
-    def delete(self, tag):
-        """ delete all posts that have the provided  tag"""
+    def find_dup(self, sensor_name, caption, summary):
+        """ find already published duplicate posts """
+        ids = []
         try:
             posts = Publisher.__ghost.posts.list(status='all', include='tags')
-            ids = []
             for _ in range(posts.pages):
                 last, posts = posts, posts.next_page()
-                for p in last:
-                    for sensor, upd in tag:
-                        if p['tags'] and p['tags'][0]['name'] == sensor.__class__.__name__ \
-                                and p['title'] == upd['caption'] \
-                                and p['custom_excerpt'] == upd['summary']:
-                            ids.append(p.id)
+                ids.extend([p['id'] for p in last if p['tags'] and p['tags'][0]['name'] == sensor_name
+                            and p['title'] == caption[:255]
+                            and p['custom_excerpt'] == summary[:300]])
                 if not posts:
                     break
-            # for i in ids:
-            #     Publisher.__ghost.posts.delete(i)
         except GhostException as e:
             logging.error(str(e))
+        return ids
 
     def purge(self, sensor=None, all_sensors=False):
         """ delete all posts and the tag associated with the given sensor """
@@ -156,22 +160,18 @@ if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
         filename=os.path.join(os.getcwd(), 'logs', 'publisher.log'),
-        filemode='a',
+        filemode='w',
         format='%(asctime)s - %(module)s - %(lineno)d - %(levelname)s - %(message)s')
 
     publisher = Publisher()
-    publisher.purge(FooSensor())
+
+    s = FooSensor()
+    publisher.publish(s, **(s.get_all()[0]))
 
     s = OpenWeather()
-    publisher.purge(s)
-
-    content = s.get_all()
-    for c in content:
+    # publisher.purge(s)
+    for c in s.get_all():
         publisher.publish(s, **c)
 
     s = InstaSensor()
-    publisher.purge(s)
-
-    content = s.get_all()
-    for c in content:
-        publisher.publish(s, **c)
+    publisher.delete_posts(s)

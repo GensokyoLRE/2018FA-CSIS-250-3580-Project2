@@ -13,12 +13,6 @@ from datetime import datetime, timezone
 from requests import Timeout, HTTPError, ConnectionError
 from sensor import SensorX
 
-# logging into current_dir/logs/{sensor_name}.log
-logging.basicConfig(
-    level=logging.INFO,
-    filename=os.path.join(os.getcwd(), 'logs', 'foosensor.log'),
-    filemode='a',
-    format='%(asctime)s - %(lineno)d - %(message)s')
 
 
 class FooSensor(SensorX):
@@ -28,7 +22,6 @@ class FooSensor(SensorX):
     def __init__(self):
         """ calling the super this a file name, without extension, e.g. './foosensor/FooSensor' """
         super().__init__(os.path.join(os.path.dirname(__file__), self.__class__.__name__))
-        logging.info("Sensor just woke up .. ready to be called")
 
     #
     #   Implementing the required methods
@@ -100,6 +93,13 @@ class FooSensor(SensorX):
 
 
 if __name__ == "__main__":
+    # logging into current_dir/logs/{sensor_name}.log
+    logging.basicConfig(
+        level=logging.INFO,
+        filename=os.path.join(os.getcwd(), 'logs', 'foosensor.log'),
+        filemode='a',
+        format='%(asctime)s - %(lineno)d - %(message)s')
+
     """ let's play """
     sensor = FooSensor()
 

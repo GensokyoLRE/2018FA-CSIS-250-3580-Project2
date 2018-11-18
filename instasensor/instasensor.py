@@ -15,12 +15,6 @@ from datetime import datetime
 from sensor import SensorX
 from requests import Timeout, HTTPError, ConnectionError
 
-logging.basicConfig(
-    level=logging.INFO,
-    filename=os.path.join(os.getcwd(), 'logs', 'instasensor.log'),
-    filemode='a',
-    format='%(asctime)s - %(lineno)d - %(message)s')
-
 
 class InstaSensor(SensorX):
     """ requires external lib for screen scraping BeautifulSoup (v4.3.x) and XML and HTML processor lxml (v4.2.x) """
@@ -106,5 +100,11 @@ class InstaSensor(SensorX):
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        filename=os.path.join(os.getcwd(), 'logs', 'instasensor.log'),
+        filemode='a',
+        format='%(asctime)s - %(lineno)d - %(message)s')
+
     for d in InstaSensor().get_all():
         print(d)

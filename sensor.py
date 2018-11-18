@@ -70,7 +70,7 @@ class SensorX(Sensor):
         self.file_name = file_name
         with open(file_name + '.json') as json_text:
             self.props = json.load(json_text)
-        logging.info("Sensor just woke up .. ready to be called")
+        logging.info(self.__class__.__name__ + " just woke up .. ready to be called")
 
     def _request_allowed(self):
         """ check if it's OK to call the 3rd party web-service again, or if we rathe rwait a little longer """

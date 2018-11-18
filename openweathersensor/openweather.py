@@ -7,13 +7,6 @@ import requests
 from requests import Timeout, HTTPError, ConnectionError
 from sensor import SensorX
 
-# logging into current_dir/logs/{sensor_name}.log
-logging.basicConfig(
-    level=logging.INFO,
-    filename=os.path.join(os.getcwd(), 'logs', 'openweathersensor.log'),
-    filemode='a',
-    format='%(asctime)s - %(lineno)d - %(message)s')
-
 
 class OpenWeather(SensorX):
     """ Simply reporting the current time, as reported by api.timezonedb.com
@@ -84,6 +77,12 @@ class OpenWeather(SensorX):
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        filename=os.path.join(os.getcwd(), 'logs', 'openweathersensor.log'),
+        filemode='a',
+        format='%(asctime)s - %(lineno)d - %(message)s')
+
     """ let's play """
     os.remove("OpenWeather.buf")
     sensor = OpenWeather()
