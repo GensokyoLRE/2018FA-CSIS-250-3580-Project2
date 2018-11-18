@@ -74,7 +74,7 @@ class InstaSensor(SensorX):
         return content
 
     def get_featured_image(self):
-        return self.props['featured_image']
+        return os.path.join(os.path.dirname(__file__), 'images', self.props['featured_image'])
 
     @staticmethod
     def _create_content(text):

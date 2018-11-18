@@ -64,7 +64,7 @@ class Publisher:
             ids = [t['id'] for t in tags if t['name'] == name]
             tag = self.__ghost.tags.get(ids[0]) if 0 < len(ids) else self.__ghost.tags.create(
                 name=name,
-                description=sensor.props['about'],
+                description=str(sensor.props['about'])[:500] if 'about' in sensor.props else "",  # up to 500 allowed
                 feature_image=Publisher.__upload_img(sensor.get_featured_image()))
 
             # re-use summery as story, if necessary
@@ -81,7 +81,7 @@ class Publisher:
             # now it's time to create the post
             Publisher.__ghost.posts.create(
                 title=str(kwargs.get('caption')[:255]),  # up to 255 allowed
-                custom_excerpt=str(kwargs.get('summary')),  # todo is there a size limit ?
+                custom_excerpt=str(kwargs.get('summary')[:300]),  # up to 300 allowed
                 markdown=kwargs.get('story'),  # todo is there a size limit ?
                 tags=[tag],
                 feature_image=img,
@@ -167,16 +167,16 @@ if __name__ == "__main__":
     # look for client_id and client_id in the html code here: http://localhost:2368
 
     publisher = Publisher()
+
+    sensor = InstaSensor()
+    for post in sensor.get_all():
+        publisher.publish(sensor, **post)
+
     sensor = OpenWeather()
-
-    publisher.purge(sensor)
-
     for post in sensor.get_all():
         publisher.publish(sensor, **post)
 
     sensor = FooSensor()
-    publisher.purge(sensor)
-
     for post in sensor.get_all():
         publisher.publish(sensor, **post)
 
