@@ -22,6 +22,9 @@ import os
 
 # noinspection PyMethodMayBeStatic
 class Sensor(ABC):
+    def __init__(self):
+        self.props = {}
+
     def __str__(self):
         return self.__class__.__name__
 
