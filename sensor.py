@@ -67,6 +67,7 @@ class SensorX(Sensor):
 
     def __init__(self, file_name):
         """ read sensor settings from config file into self.props """
+        super().__init__()
         self.file_name = file_name
         with open(file_name + '.json') as json_text:
             self.props = json.load(json_text)
