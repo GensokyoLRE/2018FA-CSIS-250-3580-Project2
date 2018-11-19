@@ -43,7 +43,7 @@ class InstaSensor(SensorX):
         return content if n == 0 else content[n:]
 
     def get_all(self):
-        """ return list of insta posts .. newest last """
+        """ return list of insta posts .. newest last, let's reverse the order to comply w/ the contract """
         if self._request_allowed():
             return self._fetch_data()[::-1]
         else:
@@ -52,15 +52,14 @@ class InstaSensor(SensorX):
     def _fetch_data(self):
         """ json encoded response from webservice .. or none"""
         try:
-            response = requests.get(self.props['service_url'] % (self.props['geo_id']),
-                                    timeout=self.props['request_timeout'])
+            r = requests.get(self.props['service_url'] % (self.props['geo_id']), timeout=self.props['request_timeout'])
             self.props['last_used'] = int(time.time())
             self._save_settings()  # remember time of the last service request
-            if response.status_code == 200:
-                content = InstaSensor._create_content(response.text)
+            if r.status_code == 200:
+                content = InstaSensor._create_content(r.text)
                 self._write_buffer(content)  # remember last service request(s) results.
             else:
-                logging.warning("response: {} {} {}".format(response.status_code, response, response.text))
+                logging.warning("response: {} {} {}".format(r.status_code, r, r.text))
                 content = []
         except (HTTPError, Timeout, ConnectionError, KeyError, ValueError, TypeError) as e:
             logging.error("except: " + str(e))
@@ -81,20 +80,21 @@ class InstaSensor(SensorX):
         data = json.loads(page_json)
         content = []
         for gram in data['entry_data']['LocationsPage'][0]['graphql']['location']['edge_location_to_media']['edges']:
+            d = gram['node']
             post = {
-                'k': gram['node']['id'],
-                'date': str(datetime.fromtimestamp(gram['node']['taken_at_timestamp'])),
-                'origin': 'https://www.instagram.com/p/' + gram['node']['shortcode']
+                'k': d['id'],
+                'date': str(datetime.fromtimestamp(d['taken_at_timestamp'])),
+                'origin': 'https://www.instagram.com/p/' + d['shortcode'],
+                'caption': 'Grossmont College',
+                'summary': 'Well, it is just Instagram, what did you expect, a poem?'
             }
-            if gram['node']['edge_media_to_caption']['edges']:
-                text = gram['node']['edge_media_to_caption']['edges'][0]['node']['text']
+            if d['edge_media_to_caption']['edges']:
+                text = d['edge_media_to_caption']['edges'][0]['node']['text']
                 lines = text.split('\n')
                 post['caption'] = lines[0].replace("#", " ")
-                post['summary'] = text.replace("#", "\#") + "\n\n## Likes: _{}_".format(
-                    str(gram['node']['edge_liked_by']['count']))
-            if gram['node']['thumbnail_resources'][4]:
-                post['img'] = gram['node']['thumbnail_resources'][4]['src']
-
+                post['summary'] = text.replace("#", "\#") + "\n## Likes: _{}_".format(str(d['edge_liked_by']['count']))
+            if d['thumbnail_resources'][4]:
+                post['img'] = d['thumbnail_resources'][4]['src']
             content.append(post)
         return content  # newest 1st
 
