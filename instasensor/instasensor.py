@@ -45,9 +45,9 @@ class InstaSensor(SensorX):
     def get_all(self):
         """ return list of insta posts .. newest last, let's reverse the order to comply w/ the contract """
         if self._request_allowed():
-            return self._fetch_data()[::-1]
+            return self._fetch_data()
         else:
-            return self._read_buffer()[::-1]
+            return self._read_buffer()
 
     def _fetch_data(self):
         """ json encoded response from webservice .. or none"""

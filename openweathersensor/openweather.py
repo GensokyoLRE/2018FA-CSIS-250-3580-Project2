@@ -18,11 +18,10 @@ class OpenWeather(SensorX):
 
     def has_updates(self, k):
         """ find out if there is content beyond k .. since this sensor only returns a single record,
-        k doesn't mean anything. Instead, has_updates is interpreted as 'has the forecast changed"""
+            has_updates is interpreted as 'has the forecast changed."""
         if self._request_allowed():
-            prev = self._read_buffer()
             content = self._fetch_data()
-            return 0 if prev and prev[0] and prev[0]['summary'] == content[0]['summary'] else 1
+            return 0 if content[0]['k'] == k else 1
         return 0
 
     def get_content(self, k):
@@ -65,7 +64,7 @@ class OpenWeather(SensorX):
             m = max(ws_json['list'], key=lambda item: int(item['main']['temp_max']))
             ts0 = datetime.now()
             tsx = datetime.fromtimestamp(m['dt'])
-            d = {'k': str(ts0),
+            d = {'k': str(tsx),
                  'date': ts0.strftime('%Y-%m-%d %I:%M:%S %p'),
                  'caption': 'Temperature forecast for Grossmont College',
                  'summary': 'For Grossmont College, the warmest temperature of **{} F** is forecast for {}'.format(
