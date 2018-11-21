@@ -117,10 +117,9 @@ class Publisher(SensorX):
                 return
             ids = self.__find_dup(name, kwargs.get('caption'), kwargs.get('summary'))
             if 0 < len(ids):
-                logging.info(name + " : duplicate records, won't be published " + kwargs.get('caption'))
-                # alternatively, the duplicates could be deleted as well, like this:
-                # for i in ids: self.__ghost.posts.delete(i)
-                return
+                logging.info(name + " : duplicate record(s) found " + kwargs.get('caption'))
+                for i in ids:
+                    self.__ghost.posts.delete(i)
 
             # re-use or create a tag
             tags = self.__ghost.tags.list(fields='name,id')
