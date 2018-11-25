@@ -1,1 +1,1 @@
-{"apikey": "1736dda1e4cdf2d5b83970de0284f420", "lat": 32.82, "lon": -117.01, "days": 8, "epoch_sec_in_day": 86400, "service_url": "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=%s&lat=%s&lon=%s&cnt=%s", "offline": false, "request_delta": 600, "last_used": 1542935955}
+{"apikey": "1736dda1e4cdf2d5b83970de0284f420", "lat": 32.82, "lon": -117.01, "days": 8, "epoch_sec_in_day": 86400, "service_url": "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=%s&lat=%s&lon=%s&cnt=%s", "offline": false, "request_delta": 600, "last_used": 1543117795}

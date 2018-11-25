@@ -88,15 +88,17 @@ class Publisher(SensorX):
         :param img_path: url starting with http, or a file path to a local file
         :return: image file path onside the CMS
         """
-        img = ''
+        img = None
         if img_path is not None:
             try:
                 img_name = os.path.basename(img_path)
                 if img_path.startswith("http"):
                     response = requests.get(img_path, stream=True)
-                    img = self.__ghost.upload(name=img_name, data=response.raw.read())
+                    if response.status_code == 200:
+                        img = self.__ghost.upload(name=img_name, data=response.raw.read())
                 else:
-                    img = self.__ghost.upload(name=img_name, file_path=img_path)
+                    if os.path.isfile(img_path):
+                        img = self.__ghost.upload(name=img_name, file_path=img_path)
             except (GhostException, requests.exceptions) as e:
                 logging.error(str(e))
         return img
@@ -155,7 +157,7 @@ class Publisher(SensorX):
                 locale='en_US',
                 visibility='public'
             )
-        except (GhostException, ConnectionError, KeyError, ValueError, TypeError) as e:
+        except (GhostException, ConnectionError, ValueError, TypeError) as e:
             logging.error(str(e))
 
     def __delete_posts(self, sensor=None, all_posts=False):

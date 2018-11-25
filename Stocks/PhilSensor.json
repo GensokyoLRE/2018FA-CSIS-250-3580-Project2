@@ -1,0 +1,1 @@
+{"service_url": "https://api.iextrading.com/1.0/stock/market/batch?symbols=%s&types=quote,news,chart&range=1m&last=1", "request_delta": 5, "last_request": 1542157111, "last_stamp": "November 24, 2018 [19:50:01 PM]", "ticks": ["cub", "dxcm", "ilmn", "ktos", "nuva", "qcom", "qdel", "sre"]}

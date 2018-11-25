@@ -1,6 +1,6 @@
 """
 GCCCD Software Sensor. House pricing at Grossmont areas.
-__version__ = "2.0"
+__version__ = "2.2"
 __author__ = "VietTrinh"
 __email__ = "viettrinh.ce@gmail.com"
 """
@@ -24,9 +24,7 @@ logging.basicConfig(
 
 
 class HousingSensor(SensorX):
-    """ Simply reporting the current time, as reported by api.timezonedb.com
-        FooSensor.json is the sensor's config file and FooSensor.buf is the history buffer """
-    _udp = {}
+    """ Using the free database API from Attomdata.com. This sensor calculate the average house pricing arround Grossmont neiborhood. """
     _avg_dict = {}
 
     def __init__(self):
@@ -48,10 +46,9 @@ class HousingSensor(SensorX):
     def has_updates(self, k):
         """ find out if there is content beyond k"""
         if self._request_allowed():
+            prev = self._read_buffer()
             content = self._fetch_data()
-            if content is not None:
-                if 0 < len(content) and content[0]['k'] != k:
-                    return 1
+            return 0 if prev and prev[0] and prev[0]['summary'] == content[0]['summary'] else 1
         return 0
 
     def get_content(self, k):
@@ -71,34 +68,52 @@ class HousingSensor(SensorX):
         """ json encoded response from webservice .. or none"""
         try:
             content = None
-            zipcode = [value for key, value in self.props["elCajon_area_zipcode"].items()]
-            random_zipcode = random.randint(0, len(zipcode) - 1)
-            search_range_btm = random.randint(self.props["search_range_btm"], self.props["search_range_top"])
-            offset_value = random.randint(self.props["search_range_offset_min"], self.props["search_range_offset_max"])
+            try:
+                zipcode_list = [value for key, value in self.props["elCajon_area_zipcode"].items()]
+                random_zipcode = random.randint(0, len(zipcode_list) - 1)
+                zipcode = zipcode_list[random_zipcode]
+            except Exception as e:
+                logging.error("except: " + str(e) + "-- Can't get zipcode, return 92020 as default")
+                zipcode = 92020
+            try:
+                search_range_btm = random.randint(self.props["search_range_btm"], self.props["search_range_top"])
+                offset_value = random.randint(self.props["search_range_offset_min"],
+                                              self.props["search_range_offset_max"])
+                search_range_top = search_range_btm + offset_value
+            except Exception as e:
+                logging.error("except: " + str(e) + "-- Can't search range, return 300k-500k as default")
+                search_range_btm = 300000
+                search_range_top = 500000
             # -- start fetching --
             if self._request_allowed():
-                conn = http.client.HTTPSConnection(self.__conn)
-                conn.request("GET", self.props['service_url'] % (zipcode[random_zipcode],
-                                                                 search_range_btm, search_range_btm + offset_value),
-                             headers=self.__headers)
-                res = conn.getresponse()
+                try:
+                    conn = http.client.HTTPSConnection(self.__conn)
+                    conn.request("GET", self.props['service_url'] % (zipcode, search_range_btm, search_range_top),
+                                 headers=self.__headers)
+                    res = conn.getresponse()
+                except http.client.HTTPException as e:
+                    logging.error("except: " + str(e) + "-- in _fetch_data() -- request fail")
+                    return self._read_buffer()
                 self.props['images_count'] += 1
                 self.props['last_used'] = int(time.time())
                 self._save_settings()
-                if res is not None and res.status == 200:
-                    content = __class__._create_content(json.loads(res.read().decode("utf-8")),
-                                                        res.getheaders(),
-                                                        self.props["last_used"],
-                                                        self.props['images_count'],
-                                                        self.props['images_reset'],
-                                                        self.image_value)
-                    logging.info("successfully requested new content")
-                    self._write_buffer(content)  # remember last service request(s) results.
+                if res is not None:
+                    if res.status == 200:
+                        content = __class__._create_content(json.loads(res.read().decode("utf-8")),
+                                                            res.getheaders(),
+                                                            self.props["last_used"],
+                                                            self.props['images_count'],
+                                                            self.props['images_reset'],
+                                                            self.image_value)
+                        logging.info("successfully requested new content")
+                        self._write_buffer(content)  # remember last service request(s) results.
+                    else:
+                        logging.warning("response: {}".format(res.status))
+                        content = self._read_buffer()
                 else:
-                    logging.warning("response: {}".format(res.status))
                     content = self._read_buffer()
         except http.client.HTTPException as e:
-            logging.error("except: " + str(e))
+            logging.error("except: " + str(e) + "-- in _fetch_data()")
             content = self._read_buffer()
         return content
 
@@ -113,7 +128,7 @@ class HousingSensor(SensorX):
             date = datetime.datetime.strptime(time, "%d%b%Y%H%M%S")
             timestamp = calendar.timegm(date.timetuple())
         except Exception as e:
-            logging.error("except: " + str(e))
+            logging.error("except: " + str(e) + "-- in _time_convert()")
             timestamp = lastused
         return timestamp
 
@@ -121,12 +136,20 @@ class HousingSensor(SensorX):
         return os.path.join(os.path.dirname(__file__), 'images', self.props["featured_image"])
 
     def _get_image_value(self):
+        """ Find all values of original image, font, directory"""
         try:
             image_value = {}
-            featured_image = self.props["featured_image"]
-            im = os.path.join(os.path.dirname(__file__), 'images', featured_image)
-            img = Image.open(im)
-            image_value["width"], image_value["height"] = img.size
+            font_directory = __class__._find_directory(self.props["font"])
+            fname = os.path.join(font_directory, self.props["font"]) if font_directory is not None else None
+            if fname is not None:
+                image_value["font_directory"] = fname if os.path.isfile(fname) else None
+            image_value["image_type"] = self.props["image_type"]
+            image_value["original_image"] = self.props["original_image"]
+            image_value["average_image_dollar"] = self.props["average_image_dollar"]
+            image_value["featured_image"] = self.props["featured_image"]
+            im = os.path.join(os.path.dirname(__file__), 'images',
+                              image_value["original_image"] + image_value["image_type"])
+            image_value["width"], image_value["height"] = Image.open(im).size
             image_value["max_lat"] = self.props["max_lat"]
             image_value["min_lat"] = self.props["min_lat"]
             image_value["max_long"] = self.props["max_long"]
@@ -135,8 +158,70 @@ class HousingSensor(SensorX):
             image_value["yScale"] = image_value["height"] / (image_value["max_lat"] - image_value["min_lat"])
             return image_value
         except Exception as e:
-            logging.error("except: " + str(e))
+            logging.error("except: " + str(e) + "-- in _get_image_value()")
             return None
+
+    @staticmethod
+    def _find_directory(item):
+        """Find directory of file"""
+        try:
+            direc = os.path.dirname(__file__)
+            for root, dirs, files in os.walk(direc):
+                for file in files:
+                    if file == item:
+                        return root
+            return None
+        except Exception as e:
+            logging.error("except: " + str(e) + "-- in _find_directory()")
+            return None
+
+    @staticmethod
+    def _draw_dollar(image_value, images_count, images_reset, xPix, yPix, size):
+        """Draw  $ at local area"""
+        try:
+            direc = os.path.dirname(__file__)
+            in_name = image_value["original_image"] + image_value["image_type"]
+            out_name = image_value["average_image_dollar"] + image_value["image_type"]
+            if image_value["font_directory"] is not None:
+                im = os.path.join(direc, 'images', in_name) \
+                    if images_count % images_reset == 0 else os.path.join(direc, 'images', out_name)
+                img = Image.open(im)
+                draw = ImageDraw.Draw(img)
+                font_text = ImageFont.truetype(os.path.join(direc, image_value["font_directory"]), 16 + size * 10)
+                draw.text((xPix, yPix), "$", font=font_text, fill=((255, int(255 / size), 0, 255)))
+                img.save(os.path.join(direc, 'images', out_name))
+        except Exception as e:
+            logging.error("except: " + str(e) + "-- in _draw_dollar()")
+
+    @staticmethod
+    def _draw_at_address(image_value, draw_dollar, address, xPix, yPix, value, avg_value):
+        """Draw total value at specific address"""
+        try:
+            direc = os.path.dirname(__file__)
+            in_name = image_value["average_image_dollar"] + image_value["image_type"]
+            out_name = image_value["featured_image"] + str(draw_dollar) + image_value["image_type"]
+            try:
+                if image_value["font_directory"] is not None:
+                    im = os.path.join(direc, 'images', in_name)
+                    img = Image.open(im)
+                    draw = ImageDraw.Draw(img)
+                    font = ImageFont.truetype(os.path.join(direc, image_value["font_directory"]), 16)
+                    address_list = address.split(',')
+                    draw.text((xPix + 10, yPix - 100), "   " + str(address_list[0]), font=font, fill="white")
+                    draw.text((xPix + 10, yPix - 70), "   " + str(address_list[1]) + ", " + str(address_list[2]) + ".",
+                              font=font, fill="white")
+                    draw.text((xPix + 10, yPix - 40), "   __Total Value    : " + str(value) + "$", font=font,
+                              fill="white")
+                    draw.text((xPix + 10, yPix), "$ __Local average: " + str(avg_value) + "$", font=font, fill="white")
+                    img.save(os.path.join(direc, 'images', out_name))
+            except Exception as e:
+                """ If can't draw at specific address, return the map with $ only, not the one with old address"""
+                logging.error("except: " + str(e) + "-- in _draw_at_address()")
+                im = os.path.join(direc, 'images', in_name)
+                img = Image.open(im)
+                img.save(os.path.join(direc, 'images', out_name))
+        except Exception as e:
+            logging.error("except: " + str(e) + "-- in _draw_at_address()")
 
     @staticmethod
     def _draw_avg_value(item, avg_value, images_count, images_reset, draw_dollar, image_value):
@@ -147,55 +232,31 @@ class HousingSensor(SensorX):
             long = abs(float(item["location"]["longitude"]))
             value = item["avm"]["amount"]["value"]
             if image_value is not None:
-                direc = os.path.dirname(__file__)
                 if (lat <= image_value["max_lat"]) & (lat >= image_value["min_lat"]) & \
                         (long <= image_value["max_long"]) & (long >= image_value["min_long"]):
                     xPix = int(abs(long - image_value["max_long"]) * image_value["xScale"])
                     yPix = int(abs(lat - image_value["max_lat"]) * image_value["yScale"])
                     size = int(str(avg_value)[0])
                     if (draw_dollar == 0):
-                        try:
-                            im = os.path.join(direc, 'images/el cajon.jpg') \
-                                if images_count % images_reset == 0 else os.path.join(direc, 'images/housing-in.jpg')
-                            img = Image.open(im)
-                            draw = ImageDraw.Draw(img)
-                            font_text = ImageFont.truetype("arial.ttf", 16 + size * 10)
-                            draw.text((xPix, yPix), "$", font=font_text, fill=((255, int(255 / size), 0, 255)))
-                            img.save(os.path.join(direc, 'images/housing-in.jpg'))
-                        except Exception as e:
-                            logging.error("except: " + str(e) + "--- Can't draw housing-in.jpg")
-                    # end  draw housing-in.jpg
-                    # start draw housing-out.jppg
-                    try:
-                        out_name = 'housing-out' + str(draw_dollar) + '.jpg'
-                        im = os.path.join(direc, 'images/housing-in.jpg')
-                        img = Image.open(im)
-                        draw = ImageDraw.Draw(img)
-                        font = ImageFont.truetype("arial.ttf", 16)
-                        address_list = address.split(',')
-                        draw.text((xPix + 10, yPix - 100), "   " + str(address_list[0]), font=font, fill="white")
-                        draw.text((xPix + 10, yPix - 70),
-                                  "   " + str(address_list[1]) + ", " + str(address_list[2]) + ".", font=font,
-                                  fill="white")
-                        draw.text((xPix + 10, yPix - 40), "   __Total Value    : " + str(value) + "$", font=font,
-                                  fill="white")
-                        draw.text((xPix + 10, yPix), "$ __Local average: " + str(avg_value) + "$", font=font,
-                                  fill="white")
-                        img.save(os.path.join(direc, 'images', out_name))
-                    except Exception as e:
-                        logging.error("except: " + str(e) + "--- Can't draw housing-out.jpg")
+                        __class__._draw_dollar(image_value, images_count, images_reset, xPix, yPix, size)
+                    __class__._draw_at_address(image_value, draw_dollar, address, xPix, yPix, value, avg_value)
         except Exception as e:
-            logging.error("except: " + str(e))
+            logging.error("except: " + str(e) + "-- in _draw_avg_value")
 
     @staticmethod
     def _get_average_value(data, date):
+        """ calculate average value. """
         avg = 0
-        if data is not None:
-            for item in data: avg += item["avm"]["amount"]["value"]
-            avg /= len(data)
-            __class__._avg_dict[date] = int(avg)
-            return __class__._avg_dict[date]
-        return 0
+        try:
+            if data is not None:
+                for item in data: avg += item["avm"]["amount"]["value"]
+                avg /= len(data)
+                __class__._avg_dict[date] = int(avg)
+                return __class__._avg_dict[date]
+            return 0
+        except Exception as e:
+            logging.error("except: " + str(e) + "-- in get_average_value()")
+            return 0
 
     @staticmethod
     def _create_content(data, header, last_used, images_count, images_reset, image_value):
@@ -206,24 +267,25 @@ class HousingSensor(SensorX):
             timestamp = __class__._time_convert(header[1][1], last_used)
             avg_value = __class__._get_average_value(data["property"], header[1][1])
             for item in data["property"]:
-                out_name = 'housing-out' + str(draw_dollar) + '.jpg'
+                out_name = image_value["featured_image"] + str(draw_dollar) + image_value["image_type"]
                 __class__._draw_avg_value(item, avg_value, images_count, images_reset, draw_dollar, image_value)
                 tpm_record = {'k': int(timestamp),
                               'date': header[1][1],
                               'id': item["identifier"]["obPropId"],
                               'caption': 'House pricing at - {}'.format(item["address"]["oneLine"]),
-                              'summary': '{} {} built in {} : ${:,}'.format(
-                                  (item["summary"]["propsubtype"]).capitalize(),
-                                  (item["summary"]["proptype"]).capitalize(),
+                              'summary': 'Property: \n\t__Type: {} || Subtype: {} || Yearbuilt: {} \n\t__Calculated value: {}$ || Value range: {}$'.format(
+                                  item["summary"]["proptype"],
+                                  item["summary"]["propsubtype"],
                                   item["summary"]["yearbuilt"],
-                                  item["avm"]["amount"]["value"]
-                              ),
-                              'story': '**{} {}** built in _{}_\n Calculated Value: **${:,}**, Range: ${:,}'.format(
+                                  item["avm"]["amount"]["value"],
+                                  item["avm"]["amount"]["valueRange"]),
+                              'story': '**{} {}** built in _{}_\n Calculated value: **${:,}**,\n Range from: **${:,}**, To: ${:,}'.format(
                                   (item["summary"]["propsubtype"]).capitalize(),
                                   (item["summary"]["proptype"]).capitalize(),
                                   item["summary"]["yearbuilt"],
                                   item["avm"]["amount"]["value"],
-                                  item["avm"]["amount"]["valueRange"]),
+                                  item["avm"]["amount"]["value"] - int(item["avm"]["amount"]["valueRange"] / 2),
+                                  item["avm"]["amount"]["value"] + int(item["avm"]["amount"]["valueRange"] / 2)),
                               'img': os.path.join(os.path.dirname(__file__), 'images', out_name)
                               }
                 content.append(tpm_record)
@@ -237,7 +299,7 @@ class HousingSensor(SensorX):
 if __name__ == "__main__":
     """ let's play """
     sensor = HousingSensor()
-    for i in range(15):
+    for i in range(100):
         print(sensor.get_all())
         time.sleep(1)  # let's relax for short while
 
