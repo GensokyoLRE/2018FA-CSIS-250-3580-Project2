@@ -19,6 +19,15 @@ if __name__ == "__main__":
         filemode='w',
         format='%(asctime)s - %(module)s - %(lineno)d - %(levelname)s - %(message)s')
 
+    # from Stocks.PhilSensor import PhilSensor
+    # s = PhilSensor()
+    # k = 0
+    # for d in s.get_all():
+    #     for key in d.keys():
+    #         print("{} : {}".format(key, d.get(key)))
+    #         k = d.get('k')
+    # print(s.has_updates(k))
+
     publisher = Publisher()
     publisher.purge(all_sensors=True)
 

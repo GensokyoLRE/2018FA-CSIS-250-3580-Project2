@@ -12,6 +12,7 @@ import importlib
 import time
 import copy
 import requests
+import urllib.parse
 from sensor import SensorX
 from ghost_client import Ghost, GhostException
 
@@ -140,7 +141,7 @@ class Publisher(SensorX):
 
             # look for a link to the original source
             if kwargs.get('origin'):
-                kwargs['story'] = kwargs.get('story') + '\n\n[Original Source](' + str(kwargs.get('origin')) + ')'
+                kwargs['story'] = kwargs.get('story') + '\n\n[Original Source](' + urllib.parse.quote_plus(kwargs.get('origin')) + ')'
             # hack only needed for the bleak theme
             # if img:
             #     kwargs['story'] = "![Logo]({})\n".format(img) + kwargs.get('story')

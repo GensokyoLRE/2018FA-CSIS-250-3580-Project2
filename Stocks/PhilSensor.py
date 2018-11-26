@@ -1,5 +1,5 @@
 """
-Program: PhillipSensor.py
+Program: PhilSensor.py
 Author: Phillip "Hifumi" Cuesta (source by Wolfgang Paulus)
 Last Mod: 11/8/18 8:20 PM
 Purpose: Scans stocks pertinent to the local San Diego area.
@@ -70,7 +70,6 @@ class PhilSensor(SensorX):
         response = requests.get(self.__url % self.ticks[k])
         self.__j_response = response.json()
         pointer = os.path.join(os.path.dirname(__file__), "tickFile",  self.ticks[k] + ".json")
-        # if self.can_request():
         if not os.path.isfile(pointer):
             self.props['last_stamp'] = datetime.strftime(datetime.now(), '%B %d, %Y [%H:%M:%S %p]')
             self._save_settings()
@@ -85,12 +84,6 @@ class PhilSensor(SensorX):
             logging.info("Data exists. Checking update on %s." % pointer)
             self._save_settings()
             self.has_updates(k)
-        # else:
-        #     updateable = False
-        #     logging.info("Still on the clock. Sleeping for %s seconds cooldown."
-        #                  % int(time.time() - self.props['last_request']))
-        #     time.sleep(int(time.time() - self.props['last_request']))
-        # return updateable
 
     def get_all(self):
         """
@@ -114,7 +107,7 @@ class PhilSensor(SensorX):
                            "Last Month Stock reports and last news report for %s  "
                            % read_out[str(gtick).upper()]['quote']['companyName'],
                            read_out[str(gtick).upper()]['news'][0]['summary'],
-                           read_out[str(gtick).upper()]['news'][0]['image'],
+                           "https://ak2.picdn.net/shutterstock/videos/19066642/thumb/1.jpg",
                            read_out[str(gtick).upper()]['news'][0]['url']]
             pattern_arr = 0
             while pattern_arr < len(patterns):
@@ -145,90 +138,3 @@ if __name__ == "__main__":
     for d in PhilSensor().get_all():
         for key in d.keys():
             print("{} : {}".format(key, d.get(key)))
-
-# if __name__ == "__main__":
-#     try:
-#         sr = PhilSensor()
-#         ticks_scan = list.copy(sr.ticks)
-#         ticks_print = list.copy(sr.ticks)
-#         while ticks_scan:
-#             """Scans through the total ticks available"""
-#             up = sr.get_content(ticks_scan[-1])
-#             if up:
-#                 ticks_scan.pop(-1)
-#         logging.info("Wrapping up...")
-#         for tickP in ticks_print:
-#             """
-#             Prints each stock ticker's data, in the following order:
-#             Name, Highest Price within month, Lowest price within month, Current running price, last article recorded
-#             on IEX database with article link and image link
-#             """
-#             sTick = str(tickP)
-#             point = "./tickFile/" + tickP + ".json"
-#             with open(point, 'r') as reader:
-#                 data = json.load(reader)
-#             with open(CONFIG_FILE, 'r') as setRead:
-#                 setData = json.load(setRead)
-#             print("%s's Stock History from a Month\n"
-#                   "%s's stock has updated at %s with the following:\n"
-#                   "Month-Range Highest Price: %.2f\n"
-#                   "Month-Range Lowest Price: %.2f\n"
-#                   "Current Running Price: %.2f\n"
-#                   "Direct Feed Article:\n%s\n"
-#                   "Published At %s by %s\n%s\n"
-#                   "Link: %s\n"
-#                   "Image: %s\n" % (data[sTick.upper()]['quote']['companyName'],
-#                                    data[sTick.upper()]['quote']['companyName'],
-#                                    setData['last_stamp'],
-#                                    data[sTick.upper()]['quote']['high'],
-#                                    data[sTick.upper()]['quote']['low'],
-#                                    data[sTick.upper()]['quote']['latestPrice'],
-#                                    data[sTick.upper()]['news'][0]['headline'],
-#                                    data[sTick.upper()]['news'][0]['datetime'],
-#                                    data[sTick.upper()]['news'][0]['source'],
-#                                    data[sTick.upper()]['news'][0]['summary'],
-#                                    data[sTick.upper()]['news'][0]['url'],
-#                                    data[sTick.upper()]['news'][0]['image']))
-#         print("Sensor file finished job in %.2f seconds." % (time.time() - startTime))
-#         logging.info("Sensor file finished job in %.2f seconds." % (time.time() - startTime))
-#     except Exception as e:
-#         er = PhilSensor()
-#         if isinstance(e, requests.exceptions.ConnectionError):
-#             logging.error("Connection Error occured. Offline.")
-#         elif isinstance(e, requests.exceptions.Timeout):
-#             logging.error("Timeout occured. Unable to connect.")
-#         elif isinstance(e, requests.exceptions.HTTPError):
-#             logging.error("400 or 500 error hit. Unable to Connect.")
-#         else:
-#             logging.error("Hit an error: %s" % str(e))
-#         er.get_all()
-#         tick_e_print = list.copy(er.ticks)
-#         for tick in tick_e_print:
-#             eTick = str(tick)
-#             e_loc = "./tickFile/" + eTick + ".json"
-#             with open(e_loc, 'r') as reader:
-#                 data = json.load(reader)
-#             with open(CONFIG_FILE, 'r') as setRead:
-#                 setData = json.load(setRead)
-#             print("%s's Stock History from a Month\n"
-#                   "%s's stock has updated at %s with the following:\n"
-#                   "Month-Range Highest Price: %.2f\n"
-#                   "Month-Range Lowest Price: %.2f\n"
-#                   "Current Running Price: %.2f\n"
-#                   "Direct Feed Article:\n"
-#                   "%s\n"
-#                   "Published At %s by %s\n"
-#                   "%s\n"
-#                   "Link: %s\n"
-#                   "Image: %s\n" % (data[eTick.upper()]['quote']['companyName'],
-#                                    data[eTick.upper()]['quote']['companyName'],
-#                                    setData['last_stamp'],
-#                                    data[eTick.upper()]['quote']['high'],
-#                                    data[eTick.upper()]['quote']['low'],
-#                                    data[eTick.upper()]['quote']['latestPrice'],
-#                                    data[eTick.upper()]['news'][0]['headline'],
-#                                    data[eTick.upper()]['news'][0]['datetime'],
-#                                    data[eTick.upper()]['news'][0]['source'],
-#                                    data[eTick.upper()]['news'][0]['summary'],
-#                                    data[eTick.upper()]['news'][0]['url'],
-#                                    data[eTick.upper()]['news'][0]['image']))

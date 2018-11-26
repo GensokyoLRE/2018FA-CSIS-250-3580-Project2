@@ -1,6 +1,6 @@
 """
 GCCCD Software Sensor. House pricing at Grossmont areas.
-__version__ = "2.2"
+__version__ = "2.3"
 __author__ = "VietTrinh"
 __email__ = "viettrinh.ce@gmail.com"
 """
@@ -133,7 +133,8 @@ class HousingSensor(SensorX):
         return timestamp
 
     def get_featured_image(self):
-        return os.path.join(os.path.dirname(__file__), 'images', self.props["featured_image"])
+        return os.path.join(os.path.dirname(__file__), 'images',
+                            self.props["featured_image"] + self.props["image_type"])
 
     def _get_image_value(self):
         """ Find all values of original image, font, directory"""
