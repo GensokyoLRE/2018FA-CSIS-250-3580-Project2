@@ -15,10 +15,10 @@ import random
 import datetime
 import calendar
 
-# logging into current_dir/logs/{sensor_name}.log
+# logging into current_dir/logs/{sensor_name}.logs
 logging.basicConfig(
     level=logging.INFO,
-    filename=os.path.join(os.getcwd(), 'logs', 'housingsensor.log'),
+    filename=os.path.join(os.getcwd(), 'logs', 'housingsensor.logs'),
     filemode='a',
     format='%(asctime)s - %(lineno)d - %(message)s')
 

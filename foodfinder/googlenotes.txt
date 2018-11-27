@@ -1,0 +1,15 @@
+AIzaSyD4GGGDtwIm0te3Nc3uqQq3Fh71Z2MgQGw
+
+https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameters
+
+https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=AIzaSyD4GGGDtwIm0te3Nc3uqQq3Fh71Z2MgQGw
+
+
+https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyD4GGGDtwIm0te3Nc3uqQq3Fh71Z2MgQGw
+
+
+
+Find Place Grossmont College
+
+
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.813090,-117.006180&radius=8046.72&maxprice=2&type=restaurant&key=AIzaSyD4GGGDtwIm0te3Nc3uqQq3Fh71Z2MgQGw

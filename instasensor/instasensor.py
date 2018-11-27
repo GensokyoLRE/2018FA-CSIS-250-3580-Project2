@@ -102,7 +102,7 @@ class InstaSensor(SensorX):
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
-        filename=os.path.join(os.getcwd(), 'logs', 'instasensor.log'),
+        filename=os.path.join(os.getcwd(), 'logs', 'instasensor.logs'),
         filemode='a',
         format='%(asctime)s - %(lineno)d - %(message)s')
 

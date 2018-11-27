@@ -20,7 +20,7 @@ startTime = time.time()
 
 logging.basicConfig(
     level=logging.INFO,
-    filename=os.path.join(os.getcwd(), 'logs', 'phillipsensor.log'),
+    filename=os.path.join(os.getcwd(), 'logs', 'phillipsensor.logs'),
     filemode='a',
     format='%(asctime)s - %(lineno)s - %(message)s'
 )

@@ -18,7 +18,7 @@ import re
 from datetime import datetime
 
 __LOG_DIRECTORY = 'petfinderlog'
-__LOG_FILENAME = 'petfinder.log'
+__LOG_FILENAME = 'petfinder.logs'
 
 # Create the logs directory if it doesn't already exist
 try:
@@ -45,7 +45,7 @@ class PetFinderSensor(SensorX):
     Will used cached data if petfinder.com is not available, or returns an invalid response
     """
 
-    logging.info("\n")  # Add a new line in log to start run
+    logging.info("\n")  # Add a new line in logs to start run
 
     def __init__(self):
         """ Create new PetFinderSensor object and read sensor settings from config file """

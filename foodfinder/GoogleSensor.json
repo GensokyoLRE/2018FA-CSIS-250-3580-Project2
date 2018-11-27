@@ -1,0 +1,13 @@
+{
+    "key": "AIzaSyD4GGGDtwIm0te3Nc3uqQq3Fh71Z2MgQGw",
+    "service_url": "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.813090,-117.006180&radius=8046.72&maxprice=2&type=restaurant&key=%s",
+    "mapsEmbedURL": "https://www.google.com/maps/embed/v1/place?key=%s&q=place_id:%s",
+    "photoEmbedURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=%s&key=%s",
+    "offline_mode": "false",
+    "debug_mode": "false",
+    "request_delta": 0,
+    "last_call": "1543291281",
+    "outputDelta": 0,
+    "output_last_call": "1543291282",
+    "dump_size": 24
+}

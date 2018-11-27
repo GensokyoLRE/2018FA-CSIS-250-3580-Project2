@@ -1,0 +1,10 @@
+[
+    {
+        "k": "2018-11-26 20:01:22.243142",
+        "date": "2018-11-26 08:01:22 PM",
+        "caption": "Places to eat around Grossmont College: Sonic Drive-In",
+        "summary": "Sonic Drive-In",
+        "story": "<div id=details style='display:flex;flex-flow:row wrap;justify-content:space-around;background-color:azure;border:solid 1px green;'>        <h2 style=\"flex:100%;text-align: center;;padding:20px;background-color:skyblue;margin-top:0px;\">Places to eat around Grossmont College</h2>            <div id=column1 style='flex:30%;padding-right;10px;padding-left:10px;'>                <h1>Sonic Drive-In</h1>                <p>Address: 10515 Mission Gorge Road, Santee</p>                <p>Rating: 3.8</p>            </div>            <div id=map style='flex:65%;height:100%;'>                <h2>Map:</h2>                <iframe style='width:95%;height:25%;' src=https://www.google.com/maps/embed/v1/place?key=AIzaSyD4GGGDtwIm0te3Nc3uqQq3Fh71Z2MgQGw&q=place_id:ChIJV0xRTglY2YARRTCbZ9vx0Zc></iframe>            </div>        </div>",
+        "img": "/Users/wolf/Dropbox/PycharmProjects/Project2/foodfinder/ChIJV0xRTglY2YARRTCbZ9vx0Zc.jpg"
+    }
+]

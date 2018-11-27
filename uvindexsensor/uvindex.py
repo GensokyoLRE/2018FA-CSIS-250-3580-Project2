@@ -103,17 +103,25 @@ class UVIndex(SensorX):
 
     def _create_content(self, ws_json):
         """ from the list of dictionary json response, add to the dictionary the 'k', 'caption', and 'summary' """
-        for record in ws_json:
-            record['k'] = record['date']  # reuse the date as the unique 'k' because it is always unique
-            record['caption'] = time.strftime('%Y-%m-%d', time.localtime(record['date'])) + \
-                                ' | UV Index: ' + str(record['value'])
-            record['summary'] = str(self.props['days']) + ' day UV Index forecast for the GCCD local community. ' \
-                                                          'UV Index ranges from 1 to 11+ (low to extreme). If you ' \
-                                                          'would like to know more about UV Indexes please visit: ' \
-                                                          'https://www.epa.gov/sunsafety/uv-index-scale-1 '
-            record['img'] = 'https://www.epa.gov/sites/production/files/sunwise/images/uviscaleh_lg.gif'
+        try:
+            for record in ws_json:
+                record['k'] = record['date']  # reuse the date as the unique 'k' because it is always unique
+                record['caption'] = time.strftime('%Y-%m-%d', time.localtime(record['date'])) + \
+                                    ' | UV Index: ' + str(record['value'])
+                record['summary'] = str(self.props['days']) + ' day UV Index forecast for the GCCD local community. ' \
+                                                              'UV Index ranges from 1 to 11+ (low to extreme). If you ' \
+                                                              'would like to know more about UV Indexes please visit: ' \
+                                                              'https://www.epa.gov/sunsafety/uv-index-scale-1 '
+                record['img'] = self.props['img']
 
-        return ws_json  # The response is already a list of dictionaries where each dictionary is a day in the forecast
+            return ws_json  # The response is already a list of dictionaries where each dictionary is a day in the forecast
+        except (KeyError, TypeError) as e:
+            logging.error("Error: " + str(e))
+            return None
+
+    def get_featured_image(self):
+        """ optional background image for this sensors content"""
+        return self.props['featured_image']  # Get the image from the config file.
 
 
 if __name__ == "__main__":

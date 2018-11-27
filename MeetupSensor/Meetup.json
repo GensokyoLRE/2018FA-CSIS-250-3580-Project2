@@ -1,0 +1,1 @@
+{"offline": false, "request_delta": 60, "request_timeout": 10, "service_url": "https://api.meetup.com/find/upcoming_events?&sign=true&photo-host=public&topic_category=%s&radius=%s&key=%s", "key": "4c103a6c253a1358355f4f1b6c7b107c", "topic_category": "programming", "radius": "20", "last_used": 1543291270}

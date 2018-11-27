@@ -1,6 +1,7 @@
 """
 A consumer for GCCCD Software Sensors, takes content from sensors and publishes into Ghost
 """
+import traceback
 
 __version__ = "2.0"
 __author__ = "Wolf Paulus"
@@ -72,7 +73,7 @@ class Publisher(SensorX):
             self.props['last_used'] = int(time.time())
             for key in sensors.keys():
                 sensor = getattr(importlib.import_module(sensors[key]['module']), key)()
-                data = sensor.get_all() if everything else sensor.get_content(sensors[key].get('k', ''))
+                data = sensor.get_all() if everything else sensor.get_content(sensors[key].get('k', 0))
                 if data and 0 < len(data):
                     # remember k
                     self.props['sensors'][sensor.__class__.__name__]['k'] = data[-1]['k']
@@ -90,17 +91,17 @@ class Publisher(SensorX):
         """
         img = None
         if img_path is not None:
-            try:
-                img_name = os.path.basename(img_path)
-                if img_path.startswith("http"):
-                    response = requests.get(img_path, stream=True)
-                    if response.status_code == 200:
-                        img = self.__ghost.upload(name=img_name, data=response.raw.read())
-                else:
-                    if os.path.isfile(img_path):
-                        img = self.__ghost.upload(name=img_name, file_path=img_path)
-            except (GhostException, requests.exceptions) as e:
-                logging.error(str(e))
+            img_name = os.path.basename(img_path)
+            if img_path.startswith("http"):
+                response = requests.get(img_path, stream=True)
+                if response.status_code == 200:
+                    response.raw.decode_content = True
+                    img = self.__ghost.upload(name=img_name, data=response.raw.read())
+                    del response
+            else:
+                if os.path.isfile(img_path):
+                    img = self.__ghost.upload(name=img_name, file_path=img_path)
+
         return img
 
     def publish(self, sensor, **kwargs):
@@ -140,7 +141,8 @@ class Publisher(SensorX):
 
             # look for a link to the original source
             if kwargs.get('origin'):
-                kwargs['story'] = kwargs.get('story') + '\n\n[Original Source](' + str(kwargs.get('origin')).replace(' ', '%20') + ')'
+                kwargs['story'] = kwargs.get('story') + '\n\n[Original Source](' + str(kwargs.get('origin')).replace(
+                    ' ', '%20') + ')'
             # hack only needed for the bleak theme
             # if img:
             #     kwargs['story'] = "![Logo]({})\n".format(img) + kwargs.get('story')
@@ -158,6 +160,7 @@ class Publisher(SensorX):
                 visibility='public'
             )
         except (GhostException, ConnectionError, ValueError, TypeError) as e:
+            traceback.print_tb(e.__traceback__)
             logging.error(str(e))
 
     def __delete_posts(self, sensor=None, all_posts=False):
@@ -235,12 +238,12 @@ if __name__ == "__main__":
         format='%(asctime)s - %(module)s - %(lineno)d - %(levelname)s - %(message)s')
 
     publisher = Publisher()
-
-    ps = publisher.get_all()
-    for post in ps:
-        print(post[0], len(post[1]))
-    print(publisher.has_updates())
-    time.sleep(11)
-    print(publisher.has_updates())
-    publisher._k_wipe()
-    print(publisher.has_updates())
+    publisher.purge(all_sensors=True)
+    # ps = publisher.get_all()
+    # for post in ps:
+    #     print(post[0], len(post[1]))
+    # print(publisher.has_updates())
+    # time.sleep(11)
+    # print(publisher.has_updates())
+    # publisher._k_wipe()
+    # print(publisher.has_updates())

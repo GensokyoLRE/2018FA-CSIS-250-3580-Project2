@@ -1,0 +1,2177 @@
+[
+  {
+    "id": "YY1utbtct83mCx59bRtgJg",
+    "alias": "crafted-greens-el-cajon",
+    "name": "Crafted Greens",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/7GuH42ARKdIl2s5ZBxtK7A/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/crafted-greens-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 295,
+    "categories": [
+      {
+        "alias": "tradamerican",
+        "title": "American (Traditional)"
+      }
+    ],
+    "rating": 5.0,
+    "coordinates": {
+      "latitude": 32.7867143624914,
+      "longitude": -116.927868970833
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "745 Jamacha Rd",
+      "address2": "",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "745 Jamacha Rd",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16193284044",
+    "display_phone": "(619) 328-4044",
+    "distance": 3165.7391558010286
+  },
+  {
+    "id": "6rmG1SwehHtGlMMR4PBYdg",
+    "alias": "funky-fries-and-burgers-el-cajon",
+    "name": "Funky Fries and Burgers",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/RiaBjIbaDIwPGTs4hwUhQg/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/funky-fries-and-burgers-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 1117,
+    "categories": [
+      {
+        "alias": "burgers",
+        "title": "Burgers"
+      },
+      {
+        "alias": "hotdogs",
+        "title": "Fast Food"
+      },
+      {
+        "alias": "hotdog",
+        "title": "Hot Dogs"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.7874753500965,
+      "longitude": -116.962771420239
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "101 W Washington Ave",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "101 W Washington Ave",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16193282929",
+    "display_phone": "(619) 328-2929",
+    "distance": 2058.0436640252215
+  },
+  {
+    "id": "OlkusyYYXO7xr0r1kd4GoA",
+    "alias": "urbn-el-cajon-el-cajon-2",
+    "name": "URBN El Cajon",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/3419nY8mtu6zSMFfGzhRYg/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/urbn-el-cajon-el-cajon-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 504,
+    "categories": [
+      {
+        "alias": "pizza",
+        "title": "Pizza"
+      },
+      {
+        "alias": "beerbar",
+        "title": "Beer Bar"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.7954749437233,
+      "longitude": -116.962688440475
+    },
+    "transactions": [
+      "pickup",
+      "restaurant_reservation",
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "110 N Magnolia Ave",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "110 N Magnolia Ave",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16193286922",
+    "display_phone": "(619) 328-6922",
+    "distance": 1279.4955709362916
+  },
+  {
+    "id": "pm8LyQdQlnct_aUABJ495g",
+    "alias": "izzys-cafe-el-cajon",
+    "name": "Izzy's Cafe",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/nmgAHb6HgB81GbxAE7Wzng/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/izzys-cafe-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 307,
+    "categories": [
+      {
+        "alias": "bbq",
+        "title": "Barbeque"
+      },
+      {
+        "alias": "tradamerican",
+        "title": "American (Traditional)"
+      },
+      {
+        "alias": "diners",
+        "title": "Diners"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.8078962781428,
+      "longitude": -116.938678063452
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "1252 Broadway",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1252 Broadway",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16194475067",
+    "display_phone": "(619) 447-5067",
+    "distance": 1503.9718023856888
+  },
+  {
+    "id": "YGAYM9Vb0YuvL_rJzePwxw",
+    "alias": "the-breakfast-house-el-cajon",
+    "name": "The Breakfast House",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/PE0-faLizhV9CImaZ9QUFA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/the-breakfast-house-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 360,
+    "categories": [
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.8181,
+      "longitude": -116.95952
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "1464 Graves Ave",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1464 Graves Ave",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16194011133",
+    "display_phone": "(619) 401-1133",
+    "distance": 1584.4430281862044
+  },
+  {
+    "id": "jai8SH6WkzfOmBcgyPztvA",
+    "alias": "tortilla-n-taco-factory-el-cajon",
+    "name": "Tortilla N' Taco Factory",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/OvJZNfounAHZMqGzNsZHpQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/tortilla-n-taco-factory-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 149,
+    "categories": [
+      {
+        "alias": "tacos",
+        "title": "Tacos"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.7944335731857,
+      "longitude": -116.951033491556
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "130 S Mollison Ave",
+      "address2": "",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "130 S Mollison Ave",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16199382211",
+    "display_phone": "(619) 938-2211",
+    "distance": 1162.3975156760334
+  },
+  {
+    "id": "I36f-2-r4OhA8xXFwzMptQ",
+    "alias": "happy-time-mediterranean-restaurant-el-cajon",
+    "name": "Happy Time Mediterranean Restaurant",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/GoxEHNx18j6UMlueHjcDDw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/happy-time-mediterranean-restaurant-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 49,
+    "categories": [
+      {
+        "alias": "mideastern",
+        "title": "Middle Eastern"
+      },
+      {
+        "alias": "mediterranean",
+        "title": "Mediterranean"
+      }
+    ],
+    "rating": 3.5,
+    "coordinates": {
+      "latitude": 32.74537,
+      "longitude": -116.9276
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "2441 Jamacha Rd",
+      "address2": "Ste 106",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "2441 Jamacha Rd",
+        "Ste 106",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16194574777",
+    "display_phone": "(619) 457-4777",
+    "distance": 7042.608708169202
+  },
+  {
+    "id": "5CGHw24zwHJ5UeTWYyaU9w",
+    "alias": "fifty-two-east-neighborhood-eatery-santee",
+    "name": "Fifty-Two East Neighborhood Eatery",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/sme9zuDBdllnBtfxBO5Rdw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/fifty-two-east-neighborhood-eatery-santee?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 199,
+    "categories": [
+      {
+        "alias": "gastropubs",
+        "title": "Gastropubs"
+      },
+      {
+        "alias": "newamerican",
+        "title": "American (New)"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.8377028,
+      "longitude": -116.9880935
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "9621 Mission Gorge Rd",
+      "address2": "Ste 101",
+      "address3": null,
+      "city": "Santee",
+      "zip_code": "92071",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "9621 Mission Gorge Rd",
+        "Ste 101",
+        "Santee, CA 92071"
+      ]
+    },
+    "phone": "+16193340752",
+    "display_phone": "(619) 334-0752",
+    "distance": 4856.01990074544
+  },
+  {
+    "id": "YHfoPDpQtt2CTPrAkI5xKg",
+    "alias": "cocina-88-el-cajon",
+    "name": "Cocina 88",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/3su3MGhmZGsmkK8ZZvgFuQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/cocina-88-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 99,
+    "categories": [
+      {
+        "alias": "mexican",
+        "title": "Mexican"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.7892981,
+      "longitude": -116.9300526
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "558 Jamacha Rd",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "558 Jamacha Rd",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16197497159",
+    "display_phone": "(619) 749-7159",
+    "distance": 2805.234959150324
+  },
+  {
+    "id": "IcRICtFj5EteSeP9BVnJaQ",
+    "alias": "the-hills-la-mesa",
+    "name": "The Hills",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/_KoEhXueB-a9ScKxi41Tag/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/the-hills-la-mesa?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 882,
+    "categories": [
+      {
+        "alias": "pubs",
+        "title": "Pubs"
+      },
+      {
+        "alias": "newamerican",
+        "title": "American (New)"
+      },
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.7706076,
+      "longitude": -117.008942
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "8758 La Mesa Blvd",
+      "address2": "",
+      "address3": "",
+      "city": "La Mesa",
+      "zip_code": "91942",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "8758 La Mesa Blvd",
+        "La Mesa, CA 91942"
+      ]
+    },
+    "phone": "+16197417166",
+    "display_phone": "(619) 741-7166",
+    "distance": 6353.214918380891
+  },
+  {
+    "id": "Cqo3I5RQJQubzxLLfMKBYA",
+    "alias": "perrys-cafe-el-cajon",
+    "name": "Perry's Cafe",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/akstzp4j0uP9EXoQibiYaA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/perrys-cafe-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 226,
+    "categories": [
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.8006651041975,
+      "longitude": -116.962118897935
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "475 N Magnolia Ave",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "475 N Magnolia Ave",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194405724",
+    "display_phone": "(619) 440-5724",
+    "distance": 851.2796113217925
+  },
+  {
+    "id": "-9e98_3xWJzJzfqupH59Ow",
+    "alias": "taqueria-las-mulas-el-cajon-3",
+    "name": "Taqueria Las Mulas",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/9_IsX0NBA1EP-OkLkWtA4g/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/taqueria-las-mulas-el-cajon-3?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 229,
+    "categories": [
+      {
+        "alias": "tacos",
+        "title": "Tacos"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.808002,
+      "longitude": -116.9468413
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "1026 Broadway",
+      "address2": "",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1026 Broadway",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16194478226",
+    "display_phone": "(619) 447-8226",
+    "distance": 793.3718243003342
+  },
+  {
+    "id": "CnfODp1Nc7DSUaaW8Ufbmg",
+    "alias": "antonellis-deli-el-cajon",
+    "name": "Antonelli's Deli",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/EzJ8Oy9FEiEOmntNonKJNg/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/antonellis-deli-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 583,
+    "categories": [
+      {
+        "alias": "delis",
+        "title": "Delis"
+      },
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      },
+      {
+        "alias": "sandwiches",
+        "title": "Sandwiches"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.814908812727,
+      "longitude": -116.962722375381
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "1354 N Magnolia Ave",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1354 N Magnolia Ave",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194408460",
+    "display_phone": "(619) 440-8460",
+    "distance": 1396.8748302411072
+  },
+  {
+    "id": "T2EFeulm6HmYp4A8oMXNuQ",
+    "alias": "china-1968-el-cajon",
+    "name": "China 1968",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/PV-wDNbZ474SB-1vYMLRJw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/china-1968-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 307,
+    "categories": [
+      {
+        "alias": "chinese",
+        "title": "Chinese"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.8078149,
+      "longitude": -116.9568533
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "500 Broadway",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "500 Broadway",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16195930498",
+    "display_phone": "(619) 593-0498",
+    "distance": 464.3132940962109
+  },
+  {
+    "id": "ePGqx50UD6uS1qqyQAvtnw",
+    "alias": "dolci-cafe-italiano-el-cajon",
+    "name": "Dolci Cafe Italiano",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/bDupggg7m9qtapbpsqtNEQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/dolci-cafe-italiano-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 403,
+    "categories": [
+      {
+        "alias": "italian",
+        "title": "Italian"
+      },
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      },
+      {
+        "alias": "soup",
+        "title": "Soup"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.7449897191555,
+      "longitude": -116.933208141105
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "2650 Jamacha Rd",
+      "address2": "Ste 121",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "2650 Jamacha Rd",
+        "Ste 121",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16196602011",
+    "display_phone": "(619) 660-2011",
+    "distance": 6909.137921566371
+  },
+  {
+    "id": "JOdYSsa4DLyLQ5WCSuCGRw",
+    "alias": "sweet-and-green-el-cajon-2",
+    "name": "Sweet And Green",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Hx_NxfYzL2Gk154skPrfHQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/sweet-and-green-el-cajon-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 74,
+    "categories": [
+      {
+        "alias": "salad",
+        "title": "Salad"
+      },
+      {
+        "alias": "juicebars",
+        "title": "Juice Bars & Smoothies"
+      },
+      {
+        "alias": "sandwiches",
+        "title": "Sandwiches"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.7952299,
+      "longitude": -116.95652
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "484 E Main St",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "484 E Main St",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16197497488",
+    "display_phone": "(619) 749-7488",
+    "distance": 1067.944498296094
+  },
+  {
+    "id": "qYOT4q8ArlNh1sqhtuLXwg",
+    "alias": "the-chicken-shop-santee-5",
+    "name": "The Chicken Shop",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/61wXdTjh0uWJLEWJs8qAIQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/the-chicken-shop-santee-5?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 134,
+    "categories": [
+      {
+        "alias": "chickenshop",
+        "title": "Chicken Shop"
+      },
+      {
+        "alias": "fishnchips",
+        "title": "Fish & Chips"
+      },
+      {
+        "alias": "chicken_wings",
+        "title": "Chicken Wings"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.8397519308083,
+      "longitude": -116.995804086328
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$",
+    "location": {
+      "address1": "8929 Carlton Hills Blvd",
+      "address2": "",
+      "address3": null,
+      "city": "Santee",
+      "zip_code": "92071",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "8929 Carlton Hills Blvd",
+        "Santee, CA 92071"
+      ]
+    },
+    "phone": "+16196317967",
+    "display_phone": "(619) 631-7967",
+    "distance": 5512.371756105717
+  },
+  {
+    "id": "z8ZOqhezatcB995SMgLMqQ",
+    "alias": "el-cajon-bistro-and-bakery-el-cajon",
+    "name": "El Cajon Bistro & Bakery",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/wIORc6UIOYD24QQXAPw7dA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/el-cajon-bistro-and-bakery-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 362,
+    "categories": [
+      {
+        "alias": "mexican",
+        "title": "Mexican"
+      },
+      {
+        "alias": "tradamerican",
+        "title": "American (Traditional)"
+      },
+      {
+        "alias": "bakeries",
+        "title": "Bakeries"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.794776,
+      "longitude": -116.934923
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "109 Jamacha Rd",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "109 Jamacha Rd",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16195900278",
+    "display_phone": "(619) 590-0278",
+    "distance": 2109.628720230674
+  },
+  {
+    "id": "PSyWVp9-hS0Lq2uMrmSo0g",
+    "alias": "sahara-taste-of-the-middle-east-el-cajon",
+    "name": "Sahara Taste of the Middle East",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/zlD5s-95wmxrcWwmmR9B0w/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/sahara-taste-of-the-middle-east-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 616,
+    "categories": [
+      {
+        "alias": "mideastern",
+        "title": "Middle Eastern"
+      },
+      {
+        "alias": "mediterranean",
+        "title": "Mediterranean"
+      },
+      {
+        "alias": "newamerican",
+        "title": "American (New)"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.7396167909947,
+      "longitude": -116.941474852112
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "2990 Jamacha Rd",
+      "address2": "Ste 116",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "2990 Jamacha Rd",
+        "Ste 116",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16196609990",
+    "display_phone": "(619) 660-9990",
+    "distance": 7318.473892729481
+  },
+  {
+    "id": "7IRQZijc4SNbNY9MOs9vzQ",
+    "alias": "ali-baba-restaurant-el-cajon-3",
+    "name": "Ali Baba Restaurant",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/p4wTNlNcVFUJ88CwSUMfew/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/ali-baba-restaurant-el-cajon-3?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 620,
+    "categories": [
+      {
+        "alias": "halal",
+        "title": "Halal"
+      },
+      {
+        "alias": "mediterranean",
+        "title": "Mediterranean"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.794829,
+      "longitude": -116.957113
+    },
+    "transactions": [
+      "pickup"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "421 E Main St",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "421 E Main St",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194423622",
+    "display_phone": "(619) 442-3622",
+    "distance": 1112.9374470386713
+  },
+  {
+    "id": "xjM7TvjCyH7SA8M15348gA",
+    "alias": "testo-pepesto-italian-restaurant-el-cajon-4",
+    "name": "Testo Pepesto Italian Restaurant",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/nUGvU0sGzoGCaQR6OviodA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/testo-pepesto-italian-restaurant-el-cajon-4?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 79,
+    "categories": [
+      {
+        "alias": "italian",
+        "title": "Italian"
+      },
+      {
+        "alias": "pizza",
+        "title": "Pizza"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.79461,
+      "longitude": -116.95997
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "221 E Main St",
+      "address2": "",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "221 E Main St",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194440303",
+    "display_phone": "(619) 444-0303",
+    "distance": 1227.8671639135093
+  },
+  {
+    "id": "ci452WezPCwbVfK3-dhozg",
+    "alias": "the-pioneer-san-diego-2",
+    "name": "The Pioneer",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/0-QMvJxrWsv1Yy1wZrPwoA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/the-pioneer-san-diego-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 209,
+    "categories": [
+      {
+        "alias": "bbq",
+        "title": "Barbeque"
+      },
+      {
+        "alias": "tradamerican",
+        "title": "American (Traditional)"
+      },
+      {
+        "alias": "beerbar",
+        "title": "Beer Bar"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.800524,
+      "longitude": -117.0128573
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "8622 Lake Murray Blvd",
+      "address2": "",
+      "address3": null,
+      "city": "San Diego",
+      "zip_code": "92119",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "8622 Lake Murray Blvd",
+        "San Diego, CA 92119"
+      ]
+    },
+    "phone": "+16198257787",
+    "display_phone": "(619) 825-7787",
+    "distance": 5494.1103364798
+  },
+  {
+    "id": "EG-VVbrX2yw_xOF7LPqUWA",
+    "alias": "farmers-table-la-mesa-la-mesa",
+    "name": "Farmer's Table La Mesa",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/nFACBuIPaVhj70BNA7DiQw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/farmers-table-la-mesa-la-mesa?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 1620,
+    "categories": [
+      {
+        "alias": "newamerican",
+        "title": "American (New)"
+      },
+      {
+        "alias": "salad",
+        "title": "Salad"
+      },
+      {
+        "alias": "sandwiches",
+        "title": "Sandwiches"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.76368,
+      "longitude": -117.02154
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "8141 La Mesa Blvd",
+      "address2": null,
+      "address3": "",
+      "city": "La Mesa",
+      "zip_code": "91942",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "8141 La Mesa Blvd",
+        "La Mesa, CA 91942"
+      ]
+    },
+    "phone": "+16197246465",
+    "display_phone": "(619) 724-6465",
+    "distance": 7760.663184132697
+  },
+  {
+    "id": "YKGAU8mRpJiJ6KMrMcOOpw",
+    "alias": "diegos-donut-corner-el-cajon",
+    "name": "Diego's Donut Corner",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/YJDSjk8uNkQCa5nEhZIttg/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/diegos-donut-corner-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 102,
+    "categories": [
+      {
+        "alias": "donuts",
+        "title": "Donuts"
+      },
+      {
+        "alias": "sandwiches",
+        "title": "Sandwiches"
+      },
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      }
+    ],
+    "rating": 5.0,
+    "coordinates": {
+      "latitude": 32.8321486345717,
+      "longitude": -116.904018893838
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "8575 Los Coches Rd",
+      "address2": "Ste 10",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "8575 Los Coches Rd",
+        "Ste 10",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16197496900",
+    "display_phone": "(619) 749-6900",
+    "distance": 5609.738561984865
+  },
+  {
+    "id": "G_qQt_FeTqMGK3gd7QhMwQ",
+    "alias": "ballast-point-scripps-ranch-san-diego",
+    "name": "Ballast Point Scripps Ranch",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/tSgO0pmceg0_6MvdfmZ-Lw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/ballast-point-scripps-ranch-san-diego?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 503,
+    "categories": [
+      {
+        "alias": "breweries",
+        "title": "Breweries"
+      },
+      {
+        "alias": "newamerican",
+        "title": "American (New)"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.89851,
+      "longitude": -117.11079
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "10051 Old Grove Rd",
+      "address2": "",
+      "address3": "",
+      "city": "San Diego",
+      "zip_code": "92131",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "10051 Old Grove Rd",
+        "San Diego, CA 92131"
+      ]
+    },
+    "phone": "+18586952739",
+    "display_phone": "(858) 695-2739",
+    "distance": 17982.811263680378
+  },
+  {
+    "id": "krT9zo8QT3z0sgFtFXNSSg",
+    "alias": "philly-steak-subs-el-cajon-2",
+    "name": "Philly Steak Subs",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/nIxTjUZD8aVknFppNXswkw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/philly-steak-subs-el-cajon-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 360,
+    "categories": [
+      {
+        "alias": "sandwiches",
+        "title": "Sandwiches"
+      },
+      {
+        "alias": "cheesesteaks",
+        "title": "Cheesesteaks"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.797606,
+      "longitude": -116.957558
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$",
+    "location": {
+      "address1": "312 Ballantyne St",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "312 Ballantyne St",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194422036",
+    "display_phone": "(619) 442-2036",
+    "distance": 846.8366684035838
+  },
+  {
+    "id": "rSnkoFELAWLhMEb0VTzpiA",
+    "alias": "thai-time-el-cajon",
+    "name": "Thai Time",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/W21Q0zXhtaw4zQJg7mH2rw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/thai-time-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 475,
+    "categories": [
+      {
+        "alias": "thai",
+        "title": "Thai"
+      },
+      {
+        "alias": "seafood",
+        "title": "Seafood"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.8051395,
+      "longitude": -116.9717752
+    },
+    "transactions": [
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "762 N Johnson Ave",
+      "address2": "Ste 106",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "762 N Johnson Ave",
+        "Ste 106",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194472819",
+    "display_phone": "(619) 447-2819",
+    "distance": 1637.4383912654514
+  },
+  {
+    "id": "5jMqlXnkQACNEouQKiggaQ",
+    "alias": "antique-row-cafe-el-cajon",
+    "name": "Antique Row Cafe",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/dZCa7ELrozuFGydKhhS_GA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/antique-row-cafe-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 180,
+    "categories": [
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      },
+      {
+        "alias": "cafes",
+        "title": "Cafes"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.79455,
+      "longitude": -116.94111
+    },
+    "transactions": [
+      "pickup"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "1185 E Main St",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1185 E Main St",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16194428770",
+    "display_phone": "(619) 442-8770",
+    "distance": 1654.4081211971447
+  },
+  {
+    "id": "NtkcGBgL9XJsFFQ9e-lFCQ",
+    "alias": "funky-fries-and-burgers-el-cajon-2",
+    "name": "Funky Fries And Burgers",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/VrVXVly84zYG6YVeWpQrCQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/funky-fries-and-burgers-el-cajon-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 249,
+    "categories": [
+      {
+        "alias": "burgers",
+        "title": "Burgers"
+      },
+      {
+        "alias": "hotdog",
+        "title": "Hot Dogs"
+      },
+      {
+        "alias": "sandwiches",
+        "title": "Sandwiches"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.77018,
+      "longitude": -116.92839
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "1480 Jamacha Rd",
+      "address2": "Ste 203",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1480 Jamacha Rd",
+        "Ste 203",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16193285959",
+    "display_phone": "(619) 328-5959",
+    "distance": 4556.173443951417
+  },
+  {
+    "id": "FOHWy1hphqn1uQfg3IutUg",
+    "alias": "raising-canes-chicken-fingers-santee",
+    "name": "Raising Cane's Chicken Fingers",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/a7o6CdCVQUlNf6-28Poujg/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/raising-canes-chicken-fingers-santee?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 429,
+    "categories": [
+      {
+        "alias": "hotdogs",
+        "title": "Fast Food"
+      }
+    ],
+    "rating": 3.5,
+    "coordinates": {
+      "latitude": 32.83778,
+      "longitude": -116.98312
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "8867 Cuyamaca St",
+      "address2": "",
+      "address3": null,
+      "city": "Santee",
+      "zip_code": "92071",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "8867 Cuyamaca St",
+        "Santee, CA 92071"
+      ]
+    },
+    "phone": "+16194490565",
+    "display_phone": "(619) 449-0565",
+    "distance": 4587.289531359933
+  },
+  {
+    "id": "Nsyv58HFW0exo_nBFEge8w",
+    "alias": "janets-montana-cafe-alpine",
+    "name": "Janet's Montana Cafe",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/ksWXlwF-viGLfLJbHigmcA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/janets-montana-cafe-alpine?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 407,
+    "categories": [
+      {
+        "alias": "tradamerican",
+        "title": "American (Traditional)"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.8352662021923,
+      "longitude": -116.759991818433
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "2506 Alpine Blvd",
+      "address2": "",
+      "address3": "",
+      "city": "Alpine",
+      "zip_code": "91901",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "2506 Alpine Blvd",
+        "Alpine, CA 91901"
+      ]
+    },
+    "phone": "+16196593874",
+    "display_phone": "(619) 659-3874",
+    "distance": 18472.930561292636
+  },
+  {
+    "id": "uIbzpdygSEdl-jiteakZTw",
+    "alias": "mamma-rosas-restaurant-and-pizza-el-cajon-2",
+    "name": "Mamma Rosa's Restaurant & Pizza",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/VQsrQx9ip1HZaA2jvSn3ZA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/mamma-rosas-restaurant-and-pizza-el-cajon-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 191,
+    "categories": [
+      {
+        "alias": "pizza",
+        "title": "Pizza"
+      },
+      {
+        "alias": "italian",
+        "title": "Italian"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.8131184341681,
+      "longitude": -116.91605600064
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "1773 E Main St",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1773 E Main St",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16194420231",
+    "display_phone": "(619) 442-0231",
+    "distance": 3696.278691061879
+  },
+  {
+    "id": "OkzlusjApQTKkUzuI4uFxg",
+    "alias": "gillespie-field-cafe-el-cajon",
+    "name": "Gillespie Field Cafe",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/sA95xK2RKidYXBU22R8mJQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/gillespie-field-cafe-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 137,
+    "categories": [
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      },
+      {
+        "alias": "themedcafes",
+        "title": "Themed Cafes"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.825563,
+      "longitude": -116.974225
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "2015 N Marshall Ave",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "2015 N Marshall Ave",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194480415",
+    "display_phone": "(619) 448-0415",
+    "distance": 2989.65057526593
+  },
+  {
+    "id": "IxUlXEnzgZj5KxiW3kzBuw",
+    "alias": "city-bistro-el-cajon",
+    "name": "City Bistro",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/mQgKeZLZQn66Wmr4fbwTxA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/city-bistro-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 68,
+    "categories": [
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      },
+      {
+        "alias": "mediterranean",
+        "title": "Mediterranean"
+      },
+      {
+        "alias": "tradamerican",
+        "title": "American (Traditional)"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.7951986688473,
+      "longitude": -116.93824673621
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$",
+    "location": {
+      "address1": "1248 East Main St",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1248 East Main St",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16194424444",
+    "display_phone": "(619) 442-4444",
+    "distance": 1823.0743061041221
+  },
+  {
+    "id": "aQjQ0nCUJYXYUyAalGLbzg",
+    "alias": "grand-ole-bbq-flinn-springs-el-cajon-2",
+    "name": "Grand Ole BBQ Flinn Springs",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/VefZHrdKWxH7wisQE7hRpw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/grand-ole-bbq-flinn-springs-el-cajon-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 30,
+    "categories": [
+      {
+        "alias": "bbq",
+        "title": "Barbeque"
+      },
+      {
+        "alias": "tradamerican",
+        "title": "American (Traditional)"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.85513,
+      "longitude": -116.8377
+    },
+    "transactions": [],
+    "location": {
+      "address1": "15505 Olde Hwy 80",
+      "address2": "",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "15505 Olde Hwy 80",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16193120714",
+    "display_phone": "(619) 312-0714",
+    "distance": 12279.545568575293
+  },
+  {
+    "id": "1Xx5bUk53HHKZvVid7WhEA",
+    "alias": "hacienda-casa-blanca-el-cajon-2",
+    "name": "Hacienda Casa Blanca",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/5ie2rWwm8sp2vAcv0xY3UQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/hacienda-casa-blanca-el-cajon-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 380,
+    "categories": [
+      {
+        "alias": "mexican",
+        "title": "Mexican"
+      },
+      {
+        "alias": "bars",
+        "title": "Bars"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.80444,
+      "longitude": -116.97163
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "700 N Johnson Ave",
+      "address2": "Ste A",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "700 N Johnson Ave",
+        "Ste A",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194429827",
+    "display_phone": "(619) 442-9827",
+    "distance": 1592.4302336225073
+  },
+  {
+    "id": "lzefaivYcaLsgdXg8qD0zQ",
+    "alias": "finest-thai-el-cajon",
+    "name": "Finest Thai",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/urjzLwoJvhCYyIrmP8Qflg/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/finest-thai-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 475,
+    "categories": [
+      {
+        "alias": "thai",
+        "title": "Thai"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.8082882317596,
+      "longitude": -116.958914139426
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "354 Broadway",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "354 Broadway",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16195882271",
+    "display_phone": "(619) 588-2271",
+    "distance": 601.1485471229048
+  },
+  {
+    "id": "X4Z09n8xsCDKo6w9uUJFxQ",
+    "alias": "monavala-pizza-el-cajon",
+    "name": "Monavala Pizza",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/kuUgQ23iZxKiBvZUcts1HQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/monavala-pizza-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 152,
+    "categories": [
+      {
+        "alias": "italian",
+        "title": "Italian"
+      },
+      {
+        "alias": "pizza",
+        "title": "Pizza"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.8078149,
+      "longitude": -116.9568533
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$",
+    "location": {
+      "address1": "500 Broadway",
+      "address2": "Ste B",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "500 Broadway",
+        "Ste B",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16193328032",
+    "display_phone": "(619) 332-8032",
+    "distance": 464.3132940962109
+  },
+  {
+    "id": "rN9VTIjboffflQkRuY-SOA",
+    "alias": "hainan-chinese-restaurant-el-cajon-3",
+    "name": "Hainan Chinese Restaurant",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/ZKFPIsEc6HzC3Z8HHN3DWA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/hainan-chinese-restaurant-el-cajon-3?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 75,
+    "categories": [
+      {
+        "alias": "chinese",
+        "title": "Chinese"
+      },
+      {
+        "alias": "desserts",
+        "title": "Desserts"
+      },
+      {
+        "alias": "seafood",
+        "title": "Seafood"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.8203268,
+      "longitude": -116.9347967
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "1771 N 2nd St",
+      "address2": "",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1771 N 2nd St",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16193282239",
+    "display_phone": "(619) 328-2239",
+    "distance": 2529.9186438178385
+  },
+  {
+    "id": "eYNEUVEdSAxdjfgGmsMJUA",
+    "alias": "pizzeria-excelente-el-cajon",
+    "name": "Pizzeria Excelente",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/1CtOvc5U-xWPdwFr9hasOg/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/pizzeria-excelente-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 147,
+    "categories": [
+      {
+        "alias": "pizza",
+        "title": "Pizza"
+      },
+      {
+        "alias": "italian",
+        "title": "Italian"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.80275,
+      "longitude": -116.99789
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$",
+    "location": {
+      "address1": "2410 Fletcher Pkwy",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "2410 Fletcher Pkwy",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16197246420",
+    "display_phone": "(619) 724-6420",
+    "distance": 4083.6612298489244
+  },
+  {
+    "id": "bqhbas0gBePtg74zeHs3Ww",
+    "alias": "eat-a-pita-el-cajon",
+    "name": "Eat a Pita",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/xmmICpstccid-edhYF2JIQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/eat-a-pita-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 135,
+    "categories": [
+      {
+        "alias": "mediterranean",
+        "title": "Mediterranean"
+      },
+      {
+        "alias": "greek",
+        "title": "Greek"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.77811,
+      "longitude": -116.95675
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "1255 Avocado Ave",
+      "address2": "Ste 105",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1255 Avocado Ave",
+        "Ste 105",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194471500",
+    "display_phone": "(619) 447-1500",
+    "distance": 2922.999339733979
+  },
+  {
+    "id": "3Mt3Ly6kTJ1WWq-mZ-oWaQ",
+    "alias": "taste-of-the-himalayas-el-cajon",
+    "name": "Taste Of The Himalayas",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/_1PAYhCtuIVEwX_ezSbT7Q/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/taste-of-the-himalayas-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 98,
+    "categories": [
+      {
+        "alias": "indpak",
+        "title": "Indian"
+      },
+      {
+        "alias": "himalayan",
+        "title": "Himalayan/Nepalese"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.8149268054914,
+      "longitude": -116.917774885959
+    },
+    "transactions": [
+      "pickup"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "1784 E Main St",
+      "address2": "",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1784 E Main St",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16194019100",
+    "display_phone": "(619) 401-9100",
+    "distance": 3600.598506220255
+  },
+  {
+    "id": "4HiqE30Xu2jItJck-qeTww",
+    "alias": "el-charrito-mexican-food-el-cajon",
+    "name": "El Charrito Mexican Food",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/mEBSSvFqjs1KKGtOXHizdQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/el-charrito-mexican-food-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 10,
+    "categories": [
+      {
+        "alias": "mexican",
+        "title": "Mexican"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.80151,
+      "longitude": -116.93531
+    },
+    "transactions": [],
+    "location": {
+      "address1": "569 N 2nd St",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "569 N 2nd St",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16196317490",
+    "display_phone": "(619) 631-7490",
+    "distance": 1793.5023660057052
+  },
+  {
+    "id": "VHDOo_uCrlKNUWkW1jMPrQ",
+    "alias": "little-italy-bar-and-grill-el-cajon",
+    "name": "Little Italy Bar & Grill",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/Xtu9F0wtlYHyP1VhR2fqsQ/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/little-italy-bar-and-grill-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 77,
+    "categories": [
+      {
+        "alias": "italian",
+        "title": "Italian"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.785722,
+      "longitude": -116.9277951
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "777 Jamacha Rd",
+      "address2": "",
+      "address3": null,
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "777 Jamacha Rd",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16195885488",
+    "display_phone": "(619) 588-5488",
+    "distance": 3289.5878104514823
+  },
+  {
+    "id": "SPwEhtVgAndLS-hoXTT9Qw",
+    "alias": "hana-sushi-el-cajon",
+    "name": "Hana Sushi",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/Bp9w_hqsF6VVz-Bjrb-DuA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/hana-sushi-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 265,
+    "categories": [
+      {
+        "alias": "japanese",
+        "title": "Japanese"
+      },
+      {
+        "alias": "sushi",
+        "title": "Sushi Bars"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.7866055,
+      "longitude": -116.9277851
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "749 Jamacha Rd",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92019",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "749 Jamacha Rd",
+        "El Cajon, CA 92019"
+      ]
+    },
+    "phone": "+16193281583",
+    "display_phone": "(619) 328-1583",
+    "distance": 3225.7325044235017
+  },
+  {
+    "id": "ycJpRwgEQpilT3Sd80VSvQ",
+    "alias": "marechiaros-italian-restaurant-el-cajon-4",
+    "name": "Marechiaro's Italian Restaurant",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/SoNGOagAxtnDpLKiCcBGHw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/marechiaros-italian-restaurant-el-cajon-4?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 213,
+    "categories": [
+      {
+        "alias": "pizza",
+        "title": "Pizza"
+      },
+      {
+        "alias": "italian",
+        "title": "Italian"
+      },
+      {
+        "alias": "seafood",
+        "title": "Seafood"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.806525,
+      "longitude": -116.9359249
+    },
+    "transactions": [],
+    "price": "$$",
+    "location": {
+      "address1": "854 N 2nd St",
+      "address2": "",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92021",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "854 N 2nd St",
+        "El Cajon, CA 92021"
+      ]
+    },
+    "phone": "+16194429889",
+    "display_phone": "(619) 442-9889",
+    "distance": 1698.2828117023512
+  },
+  {
+    "id": "ohQMYHssekGtY44bMJnvJg",
+    "alias": "craft-kitchen-la-mesa",
+    "name": "Craft Kitchen",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/w9mhQRiETsazacgTbYZNhw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/craft-kitchen-la-mesa?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 606,
+    "categories": [
+      {
+        "alias": "gastropubs",
+        "title": "Gastropubs"
+      },
+      {
+        "alias": "tradamerican",
+        "title": "American (Traditional)"
+      },
+      {
+        "alias": "beerbar",
+        "title": "Beer Bar"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.7561345937221,
+      "longitude": -117.014113
+    },
+    "transactions": [
+      "pickup",
+      "delivery"
+    ],
+    "price": "$$",
+    "location": {
+      "address1": "4253 Palm Ave",
+      "address2": "",
+      "address3": "",
+      "city": "La Mesa",
+      "zip_code": "91941",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "4253 Palm Ave",
+        "La Mesa, CA 91941"
+      ]
+    },
+    "phone": "+16194614887",
+    "display_phone": "(619) 461-4887",
+    "distance": 7764.032831469523
+  },
+  {
+    "id": "TcSk1t3CAR-oMJZE6SGY5Q",
+    "alias": "beef-n-bun-el-cajon",
+    "name": "Beef 'N Bun",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Zne38Jm93dsiel9nj6LOhw/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/beef-n-bun-el-cajon?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 425,
+    "categories": [
+      {
+        "alias": "burgers",
+        "title": "Burgers"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.802,
+      "longitude": -116.99868
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "2477 Fletcher Pkwy",
+      "address2": null,
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "2477 Fletcher Pkwy",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194650767",
+    "display_phone": "(619) 465-0767",
+    "distance": 4156.851324616672
+  },
+  {
+    "id": "HIcMIWzgbsWitf32dU30eA",
+    "alias": "la-casitas-grill-and-seafood-el-cajon-3",
+    "name": "La Casita's Grill and SeaFood",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/iBXYFsxls0u0IfIW1tkWQA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/la-casitas-grill-and-seafood-el-cajon-3?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 86,
+    "categories": [
+      {
+        "alias": "seafood",
+        "title": "Seafood"
+      },
+      {
+        "alias": "mexican",
+        "title": "Mexican"
+      }
+    ],
+    "rating": 4.0,
+    "coordinates": {
+      "latitude": 32.81859,
+      "longitude": -116.96164
+    },
+    "transactions": [],
+    "price": "$",
+    "location": {
+      "address1": "1503 N Magnolia Ave",
+      "address2": "Ste A",
+      "address3": "",
+      "city": "El Cajon",
+      "zip_code": "92020",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "1503 N Magnolia Ave",
+        "Ste A",
+        "El Cajon, CA 92020"
+      ]
+    },
+    "phone": "+16194448228",
+    "display_phone": "(619) 444-8228",
+    "distance": 1704.0093755294788
+  },
+  {
+    "id": "wSxfswqmKeWi8O2xdHAZOQ",
+    "alias": "pho-van-santee-3",
+    "name": "Pho Van",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/AVwQCzmIHYlSWKaUvuyMgg/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/pho-van-santee-3?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw",
+    "review_count": 56,
+    "categories": [
+      {
+        "alias": "vietnamese",
+        "title": "Vietnamese"
+      },
+      {
+        "alias": "noodles",
+        "title": "Noodles"
+      }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+      "latitude": 32.83584,
+      "longitude": -116.98434
+    },
+    "transactions": [],
+    "location": {
+      "address1": "8790 Cuyamaca St",
+      "address2": "",
+      "address3": null,
+      "city": "Santee",
+      "zip_code": "92071",
+      "country": "US",
+      "state": "CA",
+      "display_address": [
+        "8790 Cuyamaca St",
+        "Santee, CA 92071"
+      ]
+    },
+    "phone": "+16196317878",
+    "display_phone": "(619) 631-7878",
+    "distance": 4445.242739961748
+  }
+]

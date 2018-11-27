@@ -1,0 +1,83 @@
+[
+  {
+    "categories": "salad, greek, mediterranean",
+    "display_phone": "(619) 741-7721",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/-olLyyFMlThxR0WZj2bt7g/o.jpg",
+    "location": "5525 Jackson Dr, La Mesa, CA 91942",
+    "name": "Petrino's Greek Restaurant",
+    "transactions": "delivery, pickup",
+    "url": "https://www.yelp.com/biz/petrinos-greek-restaurant-la-mesa-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw"
+  },
+  {
+    "categories": "breakfast_brunch, delis, sandwiches",
+    "display_phone": "(619) 463-4013",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/juycgSTGu95CSGqujdXB2A/o.jpg",
+    "location": "8751 La Mesa Blvd, La Mesa, CA 91942",
+    "name": "The Lunch Box Cafe & Deli",
+    "transactions": "delivery, pickup",
+    "url": "https://www.yelp.com/biz/the-lunch-box-cafe-and-deli-la-mesa-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw"
+  },
+  {
+    "categories": "thai, vegetarian",
+    "display_phone": "(619) 337-9700",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/83oU5p8o8zEzGQg28IG0Ug/o.jpg",
+    "location": "7953 University Ave, La Mesa, CA 91941",
+    "name": "Bamboo Fresh Thai Cuisine",
+    "transactions": "delivery, pickup",
+    "url": "https://www.yelp.com/biz/bamboo-fresh-thai-cuisine-la-mesa?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw"
+  },
+  {
+    "categories": "breakfast_brunch, seafood, mexican",
+    "display_phone": "(619) 825-3418",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/qLHndnc0mkMWWioyvGkgAw/o.jpg",
+    "location": "5575 Baltimore Dr, La Mesa, CA 91942",
+    "name": "Los Pinos Seafood",
+    "transactions": "delivery, pickup",
+    "url": "https://www.yelp.com/biz/los-pinos-seafood-la-mesa-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw"
+  },
+  {
+    "categories": "juicebars, vegan, juice, salad, bars_smoothies",
+    "display_phone": "(619) 825-9255",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/McwNnbmOkFxnmkfVOzs4OQ/o.jpg",
+    "location": "3723 Avocado Blvd, La Mesa, CA 91941",
+    "name": "Natural Delights Juice Bar",
+    "transactions": "delivery, pickup",
+    "url": "https://www.yelp.com/biz/natural-delights-juice-bar-la-mesa-2?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw"
+  },
+  {
+    "categories": "chinese",
+    "display_phone": "(619) 467-7057",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/MyLoEZ2kK8VF3YgwcXNg8Q/o.jpg",
+    "location": "5500 Grossmont Center Dr, Ste 301, La Mesa, CA 91942",
+    "name": "Tasty Inn Express",
+    "transactions": "delivery, pickup",
+    "url": "https://www.yelp.com/biz/tasty-inn-express-la-mesa?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw"
+  },
+  {
+    "categories": "chicken_wings, shop, fishnchips, fish_chips, wings, chickenshop, chicken",
+    "display_phone": "(619) 631-7967",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/61wXdTjh0uWJLEWJs8qAIQ/o.jpg",
+    "location": "8929 Carlton Hills Blvd, Santee, CA 92071",
+    "name": "The Chicken Shop",
+    "transactions": "delivery, pickup",
+    "url": "https://www.yelp.com/biz/the-chicken-shop-santee-5?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw"
+  },
+  {
+    "categories": "eastern, mideastern, middle, mediterranean",
+    "display_phone": "(619) 825-9922",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/RRtfOrwslVTyi3cd4yJ2wA/o.jpg",
+    "location": "10010 Campo Rd, Spring Valley, CA 91977",
+    "name": "The Edge Mediterranean Grill",
+    "transactions": "delivery, pickup",
+    "url": "https://www.yelp.com/biz/the-edge-mediterranean-grill-spring-valley?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw"
+  },
+  {
+    "categories": "mexican",
+    "display_phone": "(619) 469-7777",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/Fevj0mWa_-4OlaPXOy9RPw/o.jpg",
+    "location": "6663 El Cajon Blvd, Ste G, San Diego, CA 92115",
+    "name": "Chuy's Taco Shop",
+    "transactions": "delivery, pickup",
+    "url": "https://www.yelp.com/biz/chuys-taco-shop-san-diego?adjust_creative=qCdkHPbkhMWM9RhHrGasUw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=qCdkHPbkhMWM9RhHrGasUw"
+  }
+]

@@ -93,10 +93,10 @@ class FooSensor(SensorX):
 
 
 if __name__ == "__main__":
-    # logging into current_dir/logs/{sensor_name}.log
+    # logging into current_dir/logs/{sensor_name}.logs
     logging.basicConfig(
         level=logging.INFO,
-        filename=os.path.join(os.getcwd(), 'logs', 'foosensor.log'),
+        filename=os.path.join(os.getcwd(), 'logs', 'foosensor.logs'),
         filemode='a',
         format='%(asctime)s - %(lineno)d - %(message)s')
 

@@ -78,7 +78,7 @@ class OpenWeather(SensorX):
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
-        filename=os.path.join(os.getcwd(), 'logs', 'openweathersensor.log'),
+        filename=os.path.join(os.getcwd(), 'logs', 'openweathersensor.logs'),
         filemode='a',
         format='%(asctime)s - %(lineno)d - %(message)s')
 
